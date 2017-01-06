@@ -1,0 +1,111 @@
+\begin{enumx}
+	\item [\cmd] \textbf{awk}: a pattern scanning/processing language.
+	\item [\cmd] \textbf{grep} prints lines matching a pattern.
+	\item [\cmd] \textbf{sed}: a stream editor filtering/transforming text.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{comm} compares two sorted files line by line.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{cut}* prints selected parts of lines:
+	\item [\texttt{c}] selects only these characters,
+	\item [\texttt{d}] uses ,,delim'' instead of Tab for field delimeter,
+	\item [\texttt{f}] selects only these fields,
+	\item [\texttt{s}] does not print lines not containing delimeters.
+	\item [\cmd] \textbf{join} joins lines of two files on a common field.
+	\item [\cmd] \textbf{paste} merges lines of files.
+	\item [\texttt{d}] reuses characters from ,,list'' instead of tabs,
+	\item [\texttt{s}] pastes one file at a time, not in parallel.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{diff} compares files line by line:
+	\item [\texttt{y}] outputs in two columns,
+	\item [\texttt{i}] ignores case differences,
+	\item [\texttt{w}] ignores all white space.
+	% E Z b B
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{fmt} is a simple optimal text formatter, 
+	\item [\cmd] \textbf{fold} wraps each line to fit in specified width.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{head}* outputs the first (last) part of files:
+	\item [\texttt{c}] the first ,,num'' bytes,
+	\item [\texttt{n}] the first ,,num'' lines,
+	\item [\cmd] \textbf{tail*} the last ,,num'' bytes:
+	\item [\texttt{c}] the last ,,num'' bytes,
+	\item [\texttt{n}] the last ,,num'' lines,
+	\item [\texttt{f}] outputs appended data as the file grows,
+	\item [\texttt{s}] sleeps for approximately ,,n'' seconds between iteration 
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{less} is opposite of \textbf{more}.
+	\item [\cmd] \textbf{more} is a file perusal filter for crt viewing.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{nl*} numbers lines of files:
+	\item [\texttt{s}] adds ,,string'' after line number,
+	\item [\texttt{w}] uses ,,number'' columns for line numbers.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{shuf*} generates random permutations:
+	\item [\texttt{e}] treats each ,,arg'' as an input line,
+	\item [\texttt{i}] treats each number .. through .. as an input line, 
+	\item [\texttt{n}] outputs at most ,,count'' lines,
+	\item [\texttt{r}] output lines can be repeated (with \texttt{-n}).
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{sort}* sorts lines of text files:
+	\item [\texttt{f}] folds lower case to upper case characters,
+	\item [\texttt{g}] compares general numerical values,
+	\item [\texttt{h}] compares human readable numbers,
+	\item [\texttt{n}] compares string numerical values,
+	\item [\texttt{r}] reverses the results.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{tr} translates or deletes characters:
+	% \item \texttt{tr abc xyz} changes \texttt{a} to \texttt{x}, $\ldots$,
+	\item [c] uses the complement of ,,set1'',
+	\item [d] deletes characters, does not translate,
+	\item [s] replaces each sequence of a repeated character that is listed 
+	in the last specified ,,set'' with a single occurrence of that character.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{uniq*} omits repeated lines:
+	\item [\texttt{c}] prefixes lines by the number of occurences
+	\item [\texttt{d}] only prints duplicate lines, one for each group
+	\item [\texttt{f}] avoids comparing first fields
+	\item [\texttt{i}] ignores differences in case
+	\item [\texttt{s}] avoids comparing first characters
+	\item [\texttt{w}] compares no more than $n$ characters
+\end{enumx}
+
+% \textbf{vim} is a programmers text editor.
+
+\begin{enumx}
+	\item [\cmd] \textbf{wc}* prints newline, word and byte counts (\texttt{lwc}):
+	%\item [\texttt{c}] prints the byte counts,
+	%\item [\texttt{l}] prints the newline counts,
+	\item [\texttt{m}] prints the character counts,
+	%\item [\texttt{w}] prints the word counts.
+	\item [\texttt{L}] prints the maximum display width.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{xargs} builds and executes command lines from standard input.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{yes} outputs a string repeatedly until killed.
+\end{enumx}
