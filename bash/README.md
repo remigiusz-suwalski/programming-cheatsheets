@@ -6,3 +6,8 @@ External hyperlinks:
 and tasks which are useful for IT work or for advanced users.
 This is a practical guide with concise explanations, 
 however the reader is supposed to know what s/he is doing.*
+
+2. **An intro to the great language with the strange name** by Daniel Robbins 
+at <https://www.ibm.com/developerworks/library/l-awk1/>.
+An awk tutorial.
+
