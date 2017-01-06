@@ -1,0 +1,150 @@
+\begin{enumx}
+	\item [\cmd] \textbf{cat}* concatenates and prints files:
+	\item [\texttt{A}] shows all nonprinting characters,
+	\item [\texttt{b}] numbers nonempty output lines,
+	\item [\texttt{n}] numbers all output lines,
+	\item [\texttt{s}] suppresses repeated empty output lines.
+    % tac -r -s 'x|[^x]'
+	\item [\cmd] \textbf{tac}* does the same in reverse.
+	\item [\cmd] \textbf{rev} reverses lines characterwise.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{chgrp} changes group ownership.
+	
+	\item [\cmd] \textbf{chmod} changes permissions of a file:
+	\item [\texttt{ugoa}] permissions of the owner, group, other/all users,
+	\item [\texttt{+-=}] adds, removes or sets selected file mode bits,
+	\item [\texttt{rwx}] selects file mode bits: read/write/execute (4-2-1).
+	
+	\item [\cmd] \textbf{chown} changes owner of a file.
+	
+	\item [\cmd] \textbf{umask} sets file mode creation mask.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{shasum} prints or checks SHA message digests:
+	\item [\texttt{a}] algorithm: 1, 224, 256, 384, 512, 512224 or 512256,
+	\item [\texttt{b}] reads in binary mode,
+	\item [\texttt{c}] checks SHA sums read from the ,,files''.
+
+	\item [\cmd] See also \textbf{cksum} (CRC checksums) and \textbf{md5sum}.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{dd} converts and copies a file:
+	\item [\texttt{if=}] reads from a file instead of standard input,
+	\item [\texttt{of=}] writes to a file insteaed of standard output,
+	\item [\texttt{bs=}] up to ,,bytes'' bytes at a time,
+	\item [\texttt{count=}] copies only ,,n'' input blocks.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{cp}* copies files and directories:
+	\item [\texttt{a}] never follows symlinks, preserves all attributes,
+	\item [\texttt{d}] never follows symlinks in ,,source'',
+	\item [\texttt{l}] hard links files instead,
+	\item [\texttt{s}] makes symbolic links instead,
+	\item [\texttt{b}] makes a backup of each existing destination file,
+	\item [\texttt{f}] removes an existing destination file if needed,
+	\item [\texttt{i}] prompts before overwrite,
+	\item [\texttt{u}] copies only newer source files,
+	\item [\texttt{r}] copies directories recursively,
+	\item [\texttt{t}] copies all ,,source'' arguments into ,,directory''.
+	
+	\item [\cmd] \textbf{mv}* moves (renames) files:
+	\item [\texttt{b}] makes a backup of each existing destination file,
+	\item [\texttt{i}] prompts before overwriting,
+	\item [\texttt{f}] does not prompt before overwriting,
+	\item [\texttt{n}] does not overwrite existing destination files.
+	
+	\item [\cmd] \textbf{rm}* removes files or directories:
+	\item [\texttt{f}] never prompts,
+	\item [\texttt{i}] always prompts,
+	\item [\texttt{r}] removes directories and their contents.
+
+	\item [\cmd] See also \textbf{rmdir} (directories removal).
+
+	\item [\cmd] \textbf{mkdir} makes directories (\texttt{mkdir p}: with parents as needed, no error if existing).
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{df} reports file system disk space usage:
+	\item [\texttt{h}] prints size in powers of 1024,
+	\item [\texttt{i}] list inode information instead of block usage,
+	\item [\texttt{t}] limits listing to file systems of given type,
+	\item [\texttt{x}] limits listing to file systems not of given type,
+	\item [\texttt{T}] prints file systems types.
+	
+	\item [\cmd] \textbf{du}* estimates file space usage:
+	\item [\texttt{a}] writes counts for all files, not just directories,
+	\item [\texttt{c}] produces a grand total,
+	\item [\texttt{d}] the depth at which summing should occur,
+	\item [\texttt{h}] prints sizes in human readable format,
+	\item [\texttt{s}] diplays only a total.
+\end{enumx}
+
+
+\begin{enumx}
+	\item [\cmd] \textbf{file} determines file type.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{fsck} checks and repairs a Linux filesystem:
+	\item [\texttt{a}] automatically repairs (without any question!),
+	\item [\texttt{t}] specifies the type(s) of filesystem to be checked,
+	\item [\texttt{A}] tries to check all filesystems in one run,
+	\item [\texttt{M}] skips mounted filesystems,
+	\item [\texttt{R}] skips the root filesystem.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{ln}* makes hard links between files
+	(not directories; only in the same file system):
+	\item [\texttt{s}]  makes symbolic links instead.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{ls} lists directory contents:
+	\item [\texttt{a}] does not ignore entries starting with dot, 
+	\item [\texttt{F}] appends indicator to entries, 
+	\item [\texttt{h}] prints human readable sizes, 
+	\item [\texttt{i}] prints the index number of each file, 
+	\item [\texttt{l}] prints permissions, number of hard links, owner, group, size, last-modified date as well, 
+	\item [\texttt{r}] reverses order while sorting,
+	\item [\texttt{R}] lists subdirectories recursively, 
+	\item [\texttt{S}] sorts by file size (largest first), 
+	\item [\texttt{t}] sorts by modification time (newest first), 
+	\item [\cmd] \textbf{tree} folds lower case to upper case characters.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{mount} mounts a filesystem.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{pwd}* prints name of current directory.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{split}* splits a file into pieces:
+	\item [\texttt{a}] generates suffixes of length ,,n'' (default 2),
+	\item [\texttt{b}] puts ,,size'' bytes per output file,
+	\item [\texttt{d}] uses numeric (not alphabetic) suffixes,
+	\item [\texttt{l}] puts ,,number'' lines/records per output file,
+	\item [\texttt{n}] generates ,,chunks'' output files.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{tee} (named after the T-splitter used in plumbing) duplicates pipe content:
+	\item [\texttt{a}] appends to the given files, does not overwrite,
+	\item [\texttt{i}] ignores interrupts.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] \textbf{touch} changes file timestamps.
+\end{enumx}
+
+\begin{enumx}
+	\item [\cmd] Missing: \textbf{cmp}, \textbf{fuser}, \textbf{pax}, \textbf{type}.
+\end{enumx}
