@@ -1,7 +1,34 @@
+\renewcommand\theFancyVerbLine{\normalsize\arabic{FancyVerbLine}}
+
 \begin{enumx}
-	\item [\cmd] \textbf{awk}: a pattern scanning/processing language.
-	\item [\cmd] \textbf{grep} prints lines matching a pattern.
-	\item [\cmd] \textbf{sed}: a stream editor filtering/transforming text.
+    \item [\cmd] \textbf{awk} is a pattern scanning / processing language,
+    a pseudo-C interpretor.
+    Sample code:
+\begin{minted}[linenos, numbersep=3pt, frame=lines, framesep=1mm]{bash}
+BEGIN {print "- Start -"}
+/word/ {print NR ")" $1, $2}
+END {print "- End -"}
+\end{minted}
+
+\item [] Examples of conditions:
+\begin{enumx}
+    \item \texttt{/word[0+9]+/}: regular expressions
+    \item \texttt{!/word[0+9]+/}: regexes inverted
+    \item \texttt{$\sim$} and \texttt{!$\sim$}: matches / does not match.
+    \item \texttt{length(\$0) > 18}.
+\end{enumx} 
+
+\item [] Important variables:
+\begin{enumx}
+    \item FS: field separator (tab),
+    \item OFS: output field separator,
+    \item RS: record separator (new line),
+    \item NR: number of the current record,
+    \item NF: number of fields in the current record.
+\end{enumx} 
+
+\item [\cmd] \textbf{grep} prints lines matching a pattern.
+\item [\cmd] \textbf{sed}: a stream editor filtering/transforming text.
 \end{enumx}
 
 \begin{enumx}
