@@ -1,4 +1,4 @@
-\documentclass[a4paper, twoside, 8pt]{extreport}
+\documentclass[a4paper, twoside, 8pt]{extarticle}
 \usepackage[
     left=1.2cm,
     right=1.2cm,
@@ -58,24 +58,47 @@
 \fancyfoot[RF]{author: Remigiusz Suwalski}
 \fancyfoot[LF]{page \thepage/\pageref{LastPage}}
 
+\begin{multicols}{3}
 \section{Unix utilities and shell builtins}
 % Based on https://en.wikipedia.org/wiki/Template:Unix_commands
+
 \subsection{File system}
+\input{unix_files}
 
 \subsection{Processes}
+\input{unix_processes}
 
 \subsection{User environment}
+\input{unix_user}
 
 \subsection{Text processing}
+\input{unix_text}
 
 \subsection{Shell builtins}
+\input{unix_builtins}
 
 \subsection{Networking}
+\input{unix_network}
 
 \subsection{Searching}
+\input{unix_search}
 
-\subsection{Documentation}
+%\subsection{Documentation}
 
 \subsection{Miscellaneous}
+\input{unix_miscellaneous}
 
+\end{multicols}
 \end{document}
+
+Todo:
+\textbf{gp} invokes the PARI/GP calculator.
+\textbf{pdflatex} runs the pdfTeX typesetter.
+
+\textbf{apropos} searches the manual page names and descriptions.
+\textbf{man} is an interface to the online reference manuals.
+
+\textbf{ghci} is the Glasgow Haskell Compiler.
+\textbf{ipython} is an interactive Python shell, see also
+\textbf{python} and \textbf{python3}.
+\textbf{gcc} is a C and C++ compiler.
