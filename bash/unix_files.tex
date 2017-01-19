@@ -46,25 +46,33 @@
 \end{enumx}
 
 \begin{enumx}
-	\item [\cmd] \textbf{cp}* copies files and directories:
-	\item [\texttt{a}] never follows symlinks, preserves all attributes,
-	\item [\texttt{d}] never follows symlinks in ,,source'',
-	\item [\texttt{l}] hard links files instead,
-	\item [\texttt{s}] makes symbolic links instead,
+	\item [\cmdblack] \textbf{cp} copies files and directories:
+%	\item [\texttt{a}] never follows symlinks, preserves all attributes,
 	\item [\texttt{b}] makes a backup of each existing destination file,
 	\item [\texttt{f}] removes an existing destination file if needed,
 	\item [\texttt{i}] prompts before overwrite,
-	\item [\texttt{u}] copies only newer source files,
+	\item [\texttt{n}] does not overwrite existing files,
+	\item [\texttt{L}] always follows symlinks in ,,source'',
+	\item [\texttt{P}] never follows symlinks in ,,source'',
 	\item [\texttt{r}] copies directories recursively,
-	\item [\texttt{t}] copies all ,,source'' arguments into ,,directory''.
+	\item [\texttt{s}] makes symbolic links instead,
+	\item [\texttt{l}] hard links files instead,
+	\item [\texttt{t}] copies all ,,source'' arguments into ,,directory'',
+	\item [\texttt{T}] treats ,,destination'' as a normal file,
+	\item [\texttt{u}] copies only newer source files,
+	\item [\texttt{v}] explains what is being done.
 	
-	\item [\cmd] \textbf{mv}* moves (renames) files:
+	\item [\cmdblack] \textbf{mv} moves (renames) files:
 	\item [\texttt{b}] makes a backup of each existing destination file,
 	\item [\texttt{i}] prompts before overwriting,
 	\item [\texttt{f}] does not prompt before overwriting,
 	\item [\texttt{n}] does not overwrite existing destination files.
+	\item [\texttt{t}] moves all ,,source'' arguments into ,,directory'',
+	\item [\texttt{T}] treats ,,destination'' as a normal file,
+	\item [\texttt{u}] moves only newer source files,
+	\item [\texttt{v}] explains what is being done.
 	
-	\item [\cmd] \textbf{rm}* removes files or directories:
+	\item [\cmdblack] \textbf{rm} removes files or directories:
 	\item [\texttt{f}] never prompts,
 	\item [\texttt{i}] always prompts,
 	\item [\texttt{r}] removes directories and their contents.
