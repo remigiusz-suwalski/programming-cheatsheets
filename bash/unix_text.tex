@@ -43,7 +43,28 @@ END {print "- End -"}
 \end{enumx}
 
 \begin{enumx}
-	\item [\cmd] \textbf{comm} compares two sorted files line by line.
+	\item [\cmdblack] \textbf{comm} compares two sorted files line by line.
+	\item [\cmdblack] \textbf{shuf} generates random permutations:
+	\item [\texttt{e}] treats each ,,arg'' as an input line,
+	\item [\texttt{i}] treats each number .. through .. as an input line, 
+	\item [\texttt{n}] outputs at most ,,count'' lines,
+	\item [\texttt{r}] output lines can be repeated (with \texttt{-n}).
+	\item [\cmdblack] \textbf{sort} sorts lines of text files:
+	\item [\texttt{c}] checks for sorted input,
+	\item [\texttt{f}] folds lower case to upper case characters,
+	\item [\texttt{g}] compares general numerical values,
+	\item [\texttt{h}] compares human readable numbers,
+	\item [\texttt{k}] sorts via a key,
+	\item [\texttt{n}] compares string numerical values,
+	\item [\texttt{r}] reverses the results,
+	\item [\texttt{s}] stabilizes the sort.
+	\item [\cmdblack] \textbf{uniq} omits repeated lines:
+	\item [\texttt{c}] prefixes lines by the number of occurences,
+	\item [\texttt{d}] only prints duplicate lines, one for each group,
+	\item [\texttt{f}] avoids comparing first fields,
+	\item [\texttt{i}] ignores differences in case,
+	\item [\texttt{s}] avoids comparing first characters,
+	\item [\texttt{w}] compares no more than $n$ characters.
 \end{enumx}
 
 \begin{enumx}
@@ -95,42 +116,12 @@ END {print "- End -"}
 \end{enumx}
 
 \begin{enumx}
-	\item [\cmd] \textbf{shuf*} generates random permutations:
-	\item [\texttt{e}] treats each ,,arg'' as an input line,
-	\item [\texttt{i}] treats each number .. through .. as an input line, 
-	\item [\texttt{n}] outputs at most ,,count'' lines,
-	\item [\texttt{r}] output lines can be repeated (with \texttt{-n}).
-\end{enumx}
-
-\begin{enumx}
-	\item [\cmdblack] \textbf{sort} sorts lines of text files:
-	\item [\texttt{c}] checks for sorted input,
-	\item [\texttt{f}] folds lower case to upper case characters,
-	\item [\texttt{g}] compares general numerical values,
-	\item [\texttt{h}] compares human readable numbers,
-	\item [\texttt{k}] sorts via a key,
-	\item [\texttt{n}] compares string numerical values,
-	\item [\texttt{r}] reverses the results,
-	\item [\texttt{s}] stabilizes the sort.
-\end{enumx}
-
-\begin{enumx}
 	\item [\cmd] \textbf{tr} translates or deletes characters:
 	% \item \texttt{tr abc xyz} changes \texttt{a} to \texttt{x}, $\ldots$,
 	\item [c] uses the complement of ,,set1'',
 	\item [d] deletes characters, does not translate,
 	\item [s] replaces each sequence of a repeated character that is listed 
 	in the last specified ,,set'' with a single occurrence of that character.
-\end{enumx}
-
-\begin{enumx}
-	\item [\cmd] \textbf{uniq*} omits repeated lines:
-	\item [\texttt{c}] prefixes lines by the number of occurences
-	\item [\texttt{d}] only prints duplicate lines, one for each group
-	\item [\texttt{f}] avoids comparing first fields
-	\item [\texttt{i}] ignores differences in case
-	\item [\texttt{s}] avoids comparing first characters
-	\item [\texttt{w}] compares no more than $n$ characters
 \end{enumx}
 
 % \textbf{vim} is a programmers text editor.
