@@ -95,14 +95,20 @@ END {print "- End -"}
 \end{enumx}
 
 \begin{enumx}
-	\item [\cmd] \textbf{head}* outputs the first (last) part of files:
+	\item [\cmdblack] \textbf{head} outputs the first (last) part of files:
 	\item [\texttt{c}] the first ,,num'' bytes,
 	\item [\texttt{n}] the first ,,num'' lines,
-	\item [\cmd] \textbf{tail*} the last ,,num'' bytes:
+	\item [\cmdblack] \textbf{tail} the last ,,num'' bytes:
 	\item [\texttt{c}] the last ,,num'' bytes,
 	\item [\texttt{n}] the last ,,num'' lines,
 	\item [\texttt{f}] outputs appended data as the file grows,
-	\item [\texttt{s}] sleeps for approximately ,,n'' seconds between iteration 
+	\item [\texttt{s}] sleeps for ,,n'' seconds between iterations. 
+	\item [\cmdblack] \textbf{split} splits a file into pieces:
+	\item [\texttt{a}] generates suffixes of length ,,n'' (default 2),
+	\item [\texttt{b}] puts ,,size'' bytes per output file,
+	\item [\texttt{d}] uses numeric (not alphabetic) suffixes,
+	\item [\texttt{l}] puts ,,number'' lines/records per output file,
+	\item [\texttt{n}] generates ,,chunks'' output files.
 \end{enumx}
 
 \begin{enumx}
