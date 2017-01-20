@@ -36,13 +36,14 @@ END {print "- End -"}
 \end{enumx}
 
 \begin{enumx}
-	\item [\cmd] \textbf{cut}* prints selected parts of lines:
+	\item [\cmdblack] \textbf{cut} prints selected parts of lines:
+	\item [] \texttt{-}\texttt{-}\texttt{complement} complements the selection,
 	\item [\texttt{c}] selects only these characters,
 	\item [\texttt{d}] uses ,,delim'' instead of Tab for field delimeter,
 	\item [\texttt{f}] selects only these fields,
 	\item [\texttt{s}] does not print lines not containing delimeters.
-	\item [\cmd] \textbf{join} joins lines of two files on a common field.
-	\item [\cmd] \textbf{paste} merges lines of files.
+	\item [\cmdblack] \textbf{join} joins lines of two files on a common field.
+	\item [\cmdblack] \textbf{paste} merges lines of files.
 	\item [\texttt{d}] reuses characters from ,,list'' instead of tabs,
 	\item [\texttt{s}] pastes one file at a time, not in parallel.
 \end{enumx}
