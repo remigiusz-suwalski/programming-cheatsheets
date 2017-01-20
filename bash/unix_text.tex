@@ -27,7 +27,18 @@ END {print "- End -"}
     \item NF: number of fields in the current record.
 \end{enumx} 
 
-\item [\cmd] \textbf{grep} prints lines matching a pattern.
+\item [\cmd] \textbf{grep} prints lines matching a pattern:
+\item [\texttt{c}] prints a count of matching lines instead,
+\item [\texttt{e}] uses a ,,regexp'' pattern,
+\item [\texttt{f}] obtains patterns from a file,
+\item [\texttt{i}] ignores case disctinctions,
+\item [\texttt{v}] inverts the sense of matching,
+\item [\texttt{w}] selects only lines containing matches that form whole words,
+\item [\texttt{n}] prints line numbers as well,
+\item [\texttt{A}] prints ,,num'' lines of trailing content,
+\item [\texttt{B}] prints ,,num'' lines of leading content,
+\item [\texttt{C}] prints ,,num'' lines of both contents,
+\item [\texttt{R}] ???,
 \item [\cmd] \textbf{sed}: a stream editor filtering/transforming text.
 \end{enumx}
 
@@ -93,11 +104,14 @@ END {print "- End -"}
 
 \begin{enumx}
 	\item [\cmd] \textbf{sort}* sorts lines of text files:
+	\item [\texttt{c}] checks for sorted input,
 	\item [\texttt{f}] folds lower case to upper case characters,
 	\item [\texttt{g}] compares general numerical values,
 	\item [\texttt{h}] compares human readable numbers,
+	\item [\texttt{k}] sorts via a key,
 	\item [\texttt{n}] compares string numerical values,
 	\item [\texttt{r}] reverses the results.
+	\item [\texttt{s}] stabilizes sort by disabling last-resort comparison.
 \end{enumx}
 
 \begin{enumx}
