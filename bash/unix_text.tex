@@ -79,6 +79,12 @@ END {print "- End -"}
 	\item [\cmdblack] \textbf{paste} merges lines of files.
 	\item [\texttt{d}] reuses characters from ,,list'' instead of tabs,
 	\item [\texttt{s}] pastes one file at a time, not in parallel.
+	\item [\cmdblack] \textbf{tr} translates or deletes characters:
+	% \item \texttt{tr abc xyz} changes \texttt{a} to \texttt{x}, $\ldots$,
+	\item [c] uses the complement of ,,set1'',
+	\item [d] deletes characters, does not translate,
+	\item [s] replaces each sequence of a repeated character that is listed 
+	in the last specified ,,set'' with a single occurrence of that character.
 \end{enumx}
 
 \begin{enumx}
@@ -114,15 +120,6 @@ END {print "- End -"}
 \begin{enumx}
 	\item [\cmd] \textbf{less} is opposite of \textbf{more}.
 	\item [\cmd] \textbf{more} is a file perusal filter for crt viewing.
-\end{enumx}
-
-\begin{enumx}
-	\item [\cmd] \textbf{tr} translates or deletes characters:
-	% \item \texttt{tr abc xyz} changes \texttt{a} to \texttt{x}, $\ldots$,
-	\item [c] uses the complement of ,,set1'',
-	\item [d] deletes characters, does not translate,
-	\item [s] replaces each sequence of a repeated character that is listed 
-	in the last specified ,,set'' with a single occurrence of that character.
 \end{enumx}
 
 % \textbf{vim} is a programmers text editor.
