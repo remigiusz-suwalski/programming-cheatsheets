@@ -7,7 +7,11 @@ and tasks which are useful for IT work or for advanced users.
 This is a practical guide with concise explanations, 
 however the reader is supposed to know what s/he is doing.*
 
-2. **An intro to the great language with the strange name** by Daniel Robbins 
+3. **BASH and GNU/Linux Cheat Sheet** by Martin Bruchanov 
+at <http://bruxy.regnet.cz/web/linux/EN/bash-cheat-sheet/>
+Another Bash cheat sheet typeset in LaTeX.
+
+2. **Anintro to the great language with the strange name** by Daniel Robbins 
 at <https://www.ibm.com/developerworks/library/l-awk1/>.
 An awk tutorial.
 
