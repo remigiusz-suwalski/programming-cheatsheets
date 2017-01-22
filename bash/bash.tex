@@ -55,10 +55,10 @@
 
 \begin{document}
 \renewcommand{\footrulewidth}{0.4pt}
-\fancyhead[LE,LO]{Linux/Bash -- notes}
+\fancyhead[LE,LO]{Linux/Bash -- cheat sheet (page \thepage/\pageref{LastPage})}
 \fancyhead[RO,RE]{source: \url{https://git.io/vMQlp}} 
 \fancyfoot[RF]{author: Remigiusz Suwalski, date: \today}
-\fancyfoot[LF]{page \thepage/\pageref{LastPage}}
+\fancyfoot[LF]{\cmd \, denotes a command, \cmdblack \, a coreutils command, \texttt{f} -- a flag}
 
 \begin{multicols}{3}
 \section{Unix utilities and shell builtins}
@@ -89,6 +89,8 @@
 
 \subsection{Miscellaneous}
 \input{unix_miscellaneous}
+
+\input{shortcuts}
 
 \end{multicols}
 \end{document}
