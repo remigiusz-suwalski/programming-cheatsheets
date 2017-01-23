@@ -11,6 +11,10 @@ however the reader is supposed to know what s/he is doing.*
 at <http://bruxy.regnet.cz/web/linux/EN/bash-cheat-sheet/>
 Another Bash cheat sheet typeset in LaTeX.
 
+6. **bash - standard shell** by Gentoo Foundation at 
+<https://devmanual.gentoo.org/tools-reference/bash/index.html>. *A thorough 
+understanding of bash programming is vital when working with ebuilds.*
+
 2. **Anintro to the great language with the strange name** by Daniel Robbins 
 at <https://www.ibm.com/developerworks/library/l-awk1/>.
 An awk tutorial.
