@@ -15,3 +15,7 @@ Another Bash cheat sheet typeset in LaTeX.
 at <https://www.ibm.com/developerworks/library/l-awk1/>.
 An awk tutorial.
 
+4. **The Premier website about Regular Expressions** by Jan Goyvaerts at 
+<http://www.regular-expressions.info/quickstart.html>.
+*On this site, 
+you can find everything you need to know about regular expressions.*
