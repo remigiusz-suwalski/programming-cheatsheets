@@ -19,3 +19,6 @@ An awk tutorial.
 <http://www.regular-expressions.info/quickstart.html>.
 *On this site, 
 you can find everything you need to know about regular expressions.*
+
+5. **Vim Cheat Sheet for Programmers** by Michael at 
+<http://michael.peopleofhonoronly.com/vim/>.
