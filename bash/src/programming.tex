@@ -10,7 +10,7 @@ There are always three default files open:
 \begin{enumx}
 \item \emph{stdin} (the keyboard, file descriptor 0),
 \item \emph{stdout} (the screen, file descriptor 1) and
-\item \emph{stderr} (error messages output to the screen, file descriptor 2).
+\item \emph{stderr} (error messages output, file descriptor 2).
 \end{enumx}
 
 These \textbf{streams} can be \textbf{redirected}:
@@ -25,34 +25,79 @@ These \textbf{streams} can be \textbf{redirected}:
 \end{itemx}
 
 \subsection{Variables}
-\textbf{Variables} are case sensitive and capitalized by default.
-Variables can also contain digits and underscores,
+\textbf{Variable} names are case sensitive.
+They can contain digits and underscores as well,
 but a name starting with a digit is not allowed.
-Example: \texttt{var=value; echo \$\{var\}s} prints \texttt{values}.
+Example: 
+\begin{minted}{bash}
+var="kind"
+echo ${var}ness # kindness
+\end{minted}
+
 Special variables:
 \begin{enumx}
-	\item \texttt{\$0}, \texttt{\$1}, \ldots: name of the script itself,
-	the first, second, etc. argument.
+	\item \texttt{\$0}: name of the script itself,
+	\item \texttt{\$1}, \ldots: the first, second, etc. argument.
 	\item \texttt{\$*} and \texttt{\$@} denote all the positional parameters.
 	\item \texttt{\$\#}: the number of positional parameters
-	\item \texttt{\$?}: exit status of the most recently executed command.
+	\item \texttt{\$?}: most recently executed command exit status.
 	\item \texttt{\$\$}: the process ID of the shell.
 	\item \texttt{\$!}: the process ID of the most recently executed command.
 \end{enumx}
 
+\subsection{Control flow statements}
+\subsubsection{Conditionals}
+Here at least one statemet must be specified inside every block,
+but one can use a single colon (:) as a null statement to avoid
+rewriting the code.
+
+\begin{minted}{bash}
+if first_condition; then
+    commands
+elif second_condition; then
+    some_commands
+else
+    other_commands	
+fi
+
+case $fruit in
+    banana)
+        echo "Bananas are awry."
+        ;;
+    orange|apple)
+        echo "Ugh..."
+        exit 1
+        ;;
+    *)
+        echo "Unknown fruit!"
+esac
+\end{minted}
+
+\subsubsection{Loops}
+\begin{minted}{bash}
+for var in "the first" "the second"; do
+    echo "${var}"
+done
+
+for (( i = 1; i <= 10; i++ )); do
+    echo "i = ${i}."
+done # C-style
+
+while read myline; do
+    echo "It says ${myline}"
+done < some_file
+\end{minted}
+
+As Bash Guide for Beginners by M. Garrels says:
+\begin{enumx}
+\item the \texttt{break} statement is used to 
+exit the current loop before its normal ending. 
+\item the \texttt{continue} statement resumes iteration 
+of an enclosing while, until, select or for loop.
+\end{enumx}
+
+% special files: /dev/null, /dev/zero, /proc/...
+
 % special meaning of < > ; | * ? - one has to escape them
 % ' '
 % " "
-
-\subsection{Control flow statements}
-\begin{itemx}
-\item if -- then -- elif -- fi
-\item case -- esac
-\item while -- do -- done
-\item until -- do -- done
-\item for -- do -- done
-\item break, continue
-\item while -- do -- done
-\end{itemx}
-
-% special files: /dev/null, /dev/zero, /proc/...
