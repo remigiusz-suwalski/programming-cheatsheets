@@ -91,14 +91,37 @@ To skip to the next iteration instead, use \python{continue}.
 Loopnig on dictionaries and sets loops on keys.
 
 \section{Built-in types}
-
 \subsection{Booleans}
+There are eight comparison operations in Python: \\
+\python{<}, \python{<=}, \python{>}, \python{>=}, 
+\python{==}, \python{!=}, \python{is}, \python{is not}.
+Booleans are a subtype of integers (\python{True == 1}, \python{False == 0}).
+
+These are the Boolean operations, ordered by ascending priority: \python{or},
+\python{and}, \python{not}.
 
 \subsection{Numeric types}
+Python supports three numeric types: integers, floats and complex numbers.
+Integers have unlimited precision.
+Complex numbers have real (\python{z.real} and imaginary part (\python{z.imag},
+both are floats.
+
+Numeric types support the following operations, sorted by ascending priority:
+\begin{itemx}
+\item \python{+}, \python{-}, \python{*}, \python{/}, \python{//} (floored quotient), \python{\%} (remainder),
+\item \python{abs(x)}, \python{int(x)}, \python{float(x)}, \python{complex(re, im)},
+\item \python{c.conjugate}, \python{divmod} (quotient and remanider),
+\item \python{pow(x, y) == x**y}.
+\end{itemx}
 
 % Iterator types
 
 \subsection{Sequence types}
+Useful:
+\begin{minted}{python}
+for index, value in enumerate(list):
+    commands
+\end{minted}
 
 \subsection{Strings}
 \begin{enumx}
