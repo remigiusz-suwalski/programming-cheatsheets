@@ -5,6 +5,7 @@
     top=2.25cm,
     bottom=1.25cm]{geometry}
 \usepackage{multicol}
+\usepackage{textcomp}
 
 \usepackage{fancyhdr} % extensive control of page headers and footers
 \makeatletter
@@ -77,45 +78,50 @@
 \subsection{Strings}
 \begin{enumx}
 \item Case conversion: 
-\python{s.capitalize}, 
-\python{s.casefold} (aggresive lowercase), 
-\python{s.lower}, 
-\python{s.upper}, 
-\python{s.swapcase}, 
-\python{s.title}.
+\begin{itemx}
+    \item \python{s.capitalize()} - Make every word start with a capitalized letter.
+    \item \python{s.title()} - Make the first word capitalized.
+    \item \python{s.casefold()} Make every word lowercase, aggressively.
+          \python{s.lower()} Make every word lowercase.
+          \python{s.upper()} Make every word uppercase.
+      \item \python{s.swapcase()} Makes all uppercase letters lowercase, and vice versa.
+\end{itemx}
 
 \item Justification: 
 \begin{itemx}
-	\item \python{s.center},
-		  \python{s.ljust},
-	      \python{s.rjust},
+    \item \python{s.center(width)} Justifies \python{s} with spaces on each line, centering them.
+    \item \python{s.ljust(length)} Makes \python{s} the specified width by inserting spaces on the left.
+    \item \python{s.rjust(length)} Makes \python{s} the specified width by inserting spaces on the right.
+    \item \python{s.zfill(length)} Makes \python{s} the specified width by inserting zeros (\python{'0'}) on the left of the string.
 
-	\item \python{s.zfill} 
-	(left fills string with a zero),
-
-	\item \python{s.strip} 
-	(removes leading/trailing characters).
+	\item \python{s.strip} Removes leading and trailing spaces.
 \end{itemx}
 
 \item Checks:
-\python{s.is}\ldots,
-\python{s.startwith}, 
-\python{s.endswith}.
+\begin{itemx}
+    \item \python{s.startwith(x)} Checks if \python{s} starts with \python{x}.
+    \item \python{s.endswith(x)} Checks if \python{s} ends with \python{x}.
+    \item \python{x in s} Checks if \python{x} is contained within \python{s}.
+\end{itemx}
+
 
 \item Searching:
-\python{s.count} 
-\python{s.find} 
-\python{s.index} 
+\begin{itemx}
+\item \python{s.count(x)} Gives how man times \python{x} occurs in \python{s}.
+\item \python{s.find(x)}, \python{s.index(x)} Gives the first index of \python{x} in \python{s}.
+\end{itemx}
 
 \item Splitting and joining:
 \begin{itemx}
-	\item \python{s.join} 
-	\item \python{s.split},
-	      \python{s.partition} (before, sep, after)
+    \item \python{s.join(x)} Makes the list \python{x} into a string by inserting \python{s} in between every element of \python{x}.
+    \item \python{s.split(x)} Separates \python{s} into a list by removing every occurrence of \python{x} and collecting everything in between into a list.
+    \item \python{s.partition(x)} Like \python{s.split(x)}, but doesn't remove every occurrence of \python{x}.
 \end{itemx}
 
 \item Encoding: 
-\python{s.encode} 
+\begin{itemx}
+    \item \python{s.encode(encoding='utf-8')} Encodes a string into a specified encoding (utf-8, etc.)
+\end{itemx}
 \end{enumx}
 
 \subsection{Sets}
