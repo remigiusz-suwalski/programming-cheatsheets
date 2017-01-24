@@ -1,0 +1,26 @@
+\section{Compound statements}
+\subsection{Conditionals}
+\begin{minted}{python}
+if expression:
+    commands
+elif expression:
+    commands:
+else:
+    commands
+\end{minted}
+
+\subsection{Loops}
+\begin{minted}{python}
+while expression:   for element in list:
+    commands            commands
+else:               else:
+    commands            commands
+\end{minted}
+
+Note: A \python{break} statement executed in the first suite terminates 
+the loop without executing the \python{else} clause's suite.
+
+To terminate immediately the nearest enclosing loop, use \python{break}.
+To skip to the next iteration instead, use \python{continue}.
+
+Loopnig on dictionaries and sets loops on keys.
