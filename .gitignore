@@ -18,6 +18,8 @@
 # *.ps
 # *.eps
 # *.pdf
+# ... but we know everything in the 'rendered' dir has been built - skip it
+rendered/*
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
@@ -178,3 +180,10 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+
+# vim
+.*.swp
+
+## OS garbage
+# OSX
+.DS_Store
