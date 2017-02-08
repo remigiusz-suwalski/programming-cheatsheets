@@ -1,0 +1,66 @@
+\documentclass[a4paper, twoside, 8pt]{extarticle}
+\usepackage[
+    left=1.2cm,
+    right=1.2cm,
+    top=2.25cm,
+    bottom=1.25cm]{geometry}
+\usepackage{multicol}
+
+\usepackage{fancyhdr} % extensive control of page headers and footers
+\makeatletter
+\fancypagestyle{mypagestyle}
+{\newpage \fancyfoot[C]{} \renewcommand{\footrulewidth}{0pt}}
+\makeatother
+\pagestyle{mypagestyle}
+\headsep 5pt            
+
+\usepackage{minted} % highlighted source code
+\usepackage[usenames,dvipsnames]{color} % colour control
+\usepackage{xcolor} % driver-independent color extensions
+\usepackage{amssymb} % provides an extended symbol collection
+
+\usepackage{enumitem} % control layout of itemize, enumerate, description
+\newenvironment{enumx} {
+	\begin{enumerate}[leftmargin=*]
+	\setlength{\topsep}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt}
+	}
+{\end{enumerate}}
+\newenvironment{itemx} {
+	\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+	%\setlength{\itemsep}{0pt}
+	%\setlength{\parskip}{0pt}
+	%$\setlength{\parsep}{0pt}
+	}
+{\end{itemize}}
+
+\usepackage{parskip} % layout with zero \parindent, non-zero \parskip
+\usepackage{titlesec} % selects alternative section titles
+\titlespacing\section{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+\usepackage{lastpage} % reference last page
+\usepackage{Alegreya}
+\usepackage{hyperref}
+
+\newcommand{\manualbreak}{\vspace*{\fill}\columnbreak}
+\newcommand{\cmdblack}{$\blacksquare$}
+\newcommand{\cmd}{$\bigstar$}
+ 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyhead[LE,LO]{C++ -- cheat sheet (page \thepage/\pageref{LastPage})}
+\fancyhead[RO,RE]{source: --} 
+\fancyfoot[RF]{author: Remigiusz Suwalski, date: \today}
+%\fancyfoot[LF]{}
+
+\begin{multicols*}{3}
+C++.
+\end{multicols*}
+\end{document}
