@@ -12,5 +12,17 @@ Therefore they are totally unsuitable for learners with no prior knowledge.
 3. Bash (and most popular CLI tools).
 
 ## Compilation guide
+
+### Requirements
+* pdflatex
+* alegreya font latex package
+
+Execute
+`sudo apt-get install texlive-latex-base texlive-fonts-extras`
+under Debian/Ubuntu to install.
+
 To generate a pdf file, just execute 
 `pdflatex -shell-escape [language-name].tex` in a proper directory.
+
+Or just execute:
+`./build_all.sh`
