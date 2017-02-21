@@ -12,7 +12,7 @@
 {\newpage \fancyfoot[C]{} \renewcommand{\footrulewidth}{0pt}}
 \makeatother
 \pagestyle{mypagestyle}
-\headsep 5pt            
+\headsep 5pt
 
 \usepackage{minted} % highlighted source code
 \usepackage[usenames,dvipsnames]{color} % colour control
@@ -62,15 +62,123 @@
 \fancyfoot[LF]{\cmd \, denotes FIXME, \cmdblack \, FIXME, \texttt{f} -- FIXME}
 
 \begin{multicols}{3}
-\section{Sample Section}
+%\section{Sample Section}
+\subsection{Configure Tooling}
+\begin{enumx}
+    \item \texttt{git config --global user.name "[name]"}\\
+    Sets the name you want attached to your commit transactions
+    \item \texttt{git config --global user.email "[email address]"}\\
+    Sets the email you want attached to your commit transactions
+    \item \texttt{git config --global color.ui auto}\\
+    Enables helpful colorization of command line output
+\end{enumx}
+
+\subsection{Create Repositories}
+\begin{enumx}
+    \item \texttt{git init [project-name]}\\
+    Creates a new local repository with the specified name
+    \item \texttt{git clone [url]}\\
+    Downloads a project and its entire version history
+\end{enumx}
+
+\subsection{Making Changes}
+\begin{enumx}
+    \item \texttt{git status}\\
+    Lists all new or modified files to be committed
+    \item \texttt{git diff}\\
+    Shows file differences not yet staged
+    \item \texttt{git add [file]}\\
+    Snapshots the file in preparation for versioning
+    \item \texttt{git add .}\\
+    Snapshots all changes in preparation for versioning
+    \item \texttt{git reset [file]}\\
+    Unstages the file, but preserve its contents
+    \item \texttt{git commit -m "[descriptive message]"}\\
+    Records file snapshots permanently in version history
+    \item \texttt{git commit --amend}\\
+    Changes your last commit, inclusive your last commit message
+\end{enumx}
+
+\subsection{Group Changes}
+\begin{enumx}
+    \item \texttt{git branch}\\
+    Lists all local branches in the current repository
+    \item \texttt{git branch [branch-name]}\\
+    Creates a new branch
+    \item \texttt{git checkout [branch-name]}\\
+    Switches to the specified branch and updates the working directory
+    \item \texttt{git merge [branch]}\\
+    Combines the specified branch’s history into the current branch
+    \item \texttt{git branch -d [branch-name]}\\
+    Deletes the specified branch
+\end{enumx}
+
+\subsection{Refactor Filenames}
+\begin{enumx}
+    \item \texttt{git rm [file]}\\
+    Deletes the file from the working directory and stages the deletion
+    \item \texttt{git rm --cached [file]}\\
+    Removes the file from version control but preserves the file locally
+    \item \texttt{git mv [file-original] [file-renamed]}\\
+    Changes the file name and prepares it for commit
+\end{enumx}
+
+\subsection{Suppress Tracking}
+\begin{enumx}
+    \item A text file named .gitignore suppresses accidental versioning of files and paths matching the specified patterns
+    \item \texttt{git ls-files --other --ignored --exclude-standard}\\
+    Lists all ignored files in this project
+\end{enumx}
+
+\subsection{Save Fragments}
+\begin{enumx}
+    \item \texttt{git stash}\\
+    Temporarily stores all modified tracked files
+    \item \texttt{git stash pop}\\
+    Restores the most recently stashed files
+    \item \texttt{git stash list}\\
+    Lists all stashed changesets
+    \item \texttt{git stash drop}\\
+    Discards the most recently stashed changeset
+\end{enumx}
+
+\subsection{Review History}
+\begin{enumx}
+    \item \texttt{git log}\\
+    Lists version history for the current branch
+    \item \texttt{git log --follow [file]}\\
+    Lists version history for a file, including renames
+    \item \texttt{git log [first-branch]..[second-branch]}\\
+    Lists all commits of [second-branch] that ar not yet in [first-branch]
+    \item \texttt{git diff [first-branch]...[second-branch]}\\
+    Shows content differences between two branches
+    \item \texttt{git diff [first-branch]...[second-branch]}\\
+    Shows content differences between two branches
+    \item \texttt{git show [commit]}\\
+    Outputs metadata and content changes of the specified commit
+\end{enumx}
+
+\subsection{Undo / Redo}
+\begin{enumx}
+    \item \texttt{git reset [commit]}\\
+    Undoes all commits after [commit], preserving changes locally
+    \item \texttt{git reset --hard [commit]}\\
+    Discards all history and changes back to the specified commit
+\end{enumx}
 
 \subsection{Synchronize Changes}
 \begin{enumx}
-	\item \textbf{\$ git push -u [origin] [branch-name]}\\
-	Pushes into a new Branch
+    \item \texttt{git fetch [bookmark]}\\
+    Downloads all history from the repository bookmark
+    \item \texttt{git merge [bookmark]/[branch]}\\
+    Combines bookmark’s branch into current local branch
+    \item \texttt{git push [alias] [branch]}\\
+    Uploads all local branch commits to [alias]
+    \item \texttt{git push -u [origin] [branch-name]}\\
+    Uploads all local branch commits to [alias] and creats remote a new branch
+    \item \texttt{git pull}\\
+    Downloads bookmark history and incorporates changes
 \end{enumx}
-%\input{src/sample_inputfile}
-
 \end{multicols}
 
 \end{document}
