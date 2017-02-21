@@ -1,9 +1,9 @@
 \renewcommand\theFancyVerbLine{\normalsize\arabic{FancyVerbLine}}
 
 \begin{enumx}
-    \item [\cmd] \textbf{awk} is a pattern scanning / processing language,
-    a pseudo-C interpretor.
-    Sample code:
+	\item [\cmd] \textbf{awk} is a pattern scanning / processing language,
+	a pseudo-C interpretor.
+	Sample code:
 \begin{minted}[linenos, numbersep=3pt, frame=lines, framesep=1mm]{bash}
 BEGIN {print "- Start -"}
 /word/ {print NR ")" $1, $2}
@@ -12,19 +12,19 @@ END {print "- End -"}
 
 \item [] Examples of conditions:
 \begin{enumx}
-    \item \texttt{/word[0+9]+/}: regular expressions
-    \item \texttt{!/word[0+9]+/}: regexes inverted
-    \item \texttt{$\sim$} and \texttt{!$\sim$}: matches / does not match.
-    \item \texttt{length(\$0) > 18}.
+	\item \texttt{/word[0+9]+/}: regular expressions
+	\item \texttt{!/word[0+9]+/}: regexes inverted
+	\item \texttt{$\sim$} and \texttt{!$\sim$}: matches / does not match.
+	\item \texttt{length(\$0) > 18}.
 \end{enumx} 
 
 \item [] Important variables:
 \begin{enumx}
-    \item FS: field separator (tab and space by default),
-    \item OFS: output field separator,
-    \item RS: record separator (new line),
-    \item NR: number of the current record,
-    \item NF: number of fields in the current record.
+	\item FS: field separator (tab and space by default),
+	\item OFS: output field separator,
+	\item RS: record separator (new line),
+	\item NR: number of the current record,
+	\item NF: number of fields in the current record.
 \end{enumx} 
 
 \item [\cmd] \textbf{grep} prints lines matching a pattern:
@@ -119,20 +119,22 @@ END {print "- End -"}
 \end{enumx}
 
 \begin{enumx}
-    \item [\cmd] \textbf{more} pages text too large to fit on one screen and 
-    allows scrolling down, but not up and therefore is deprecated.
-    \item [\cmd] \textbf{less} is an enhanced version of more:
-    \item [\texttt{+F}] monitors the tail of a file which is growing.
+	\item [\cmd] \textbf{more} pages text too large to fit on one screen and 
+	allows scrolling down, but not up and therefore is deprecated.
+	\item [\cmd] \textbf{less} is an enhanced version of more:
+	\item [\texttt{+F}] monitors the tail of a file which is growing.
 \end{enumx}
 
 \begin{enumx}
-    \item [\cmd] \textbf{vim} is an advanced text editor, 
-    too complex to be explained here.
-    See also \textbf{emacs}.
+	\item [\cmd] \textbf{vim} is an advanced text editor, 
+	too complex to be explained here.
+	See also \textbf{emacs}.
 \end{enumx}
 
 \begin{enumx}
-	\item [\cmd] \textbf{xargs} builds and executes command lines from standard input.
+	\item [\cmd] \textbf{xargs} builds and executes command lines:
+	\item [\texttt{0}] takes care of filenames with spaces, backslashes.
+	\item [\texttt{I}] replaces occurrences of ,,string'' with names read from standard input.
 \end{enumx}
 
 \begin{enumx}
