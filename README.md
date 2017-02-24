@@ -33,6 +33,6 @@ To generate a pdf file, just execute
 `pdflatex -shell-escape [language-name].tex` in a proper directory.
 
 Or just execute:
-`./build_all.sh`
+`./render.sh`
 
 You can clean up the unneeded files with `./clean_up.sh`.
