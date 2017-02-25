@@ -1,0 +1,98 @@
+Maybe we want to add some of the stuff below:
+
+
+  * https://www.reddit.com/r/programming/comments/5uj9kc/git_cheat_sheet/
+  * https://services.github.com/resources/
+  * http://ohshitgit.com/
+
+===== Undo / Redo =====
+# Lists every thing you've done yet across all branches
+git reflog
+# Unodes all commits after HEAD@{index}
+git reset HEAD@{index}
+
+# Move the last commit from the [wrong-branch] to [correct-branch]
+git branch [correct-branch]
+# create [correct-branch] if nessesarry
+git checkout [correct-branch]
+# Go to [correct-branch]
+git cherry-pick [wrong-branch]
+# Get the commit from the [wrong-branch]; Only nessesarry if [correct-branch] is not new
+git checkout [wrong-branch]
+# Go to [wrong-branch]
+git reset HEAD~ --hard
+# Reste the wrong branch now
+git checkout [correct-branch]
+# Optional go now to [correct-branch]
+
+# fixing fatal: Could not parse object after unsuccessful revert
+git revert --quit
+
+
+
+
+
+    pulling for fast-forward only (eliminating a chance for unintended merging) git pull --ff-only
+
+    get a tagged branch gicheckout -b <BRANCH_NAME> <TAG_NAME>
+
+    list of all branches that haven't been merged to master git branch --no-merge master
+
+    enable more elaborate diff algorithm by default git config --global diff.algorithm histogram
+
+    list of all developers git shortlog -s -n -e
+
+    display graph of branches git log --decorate --graph --all --date=relative or git log --decorate --graph --all --oneline
+
+
+
+    viewing differences between current and other branch
+    git difftool -d BRANCH_NAME
+
+    viewing differences between current and stash
+    git difftool -d stash
+
+    viewing differences between several commits in a diff tool
+    git difftool -d HEAD@{2}...HEAD@{0}
+
+    view all global settings
+    git config --global -l
+
+
+deleting remote branch localy
+git branch -r -D <BRANCH_NAME> or to sync with the remote git fetch --all --prune
+deleting local branch
+git branch -d <BRANCH_NAME>
+
+    list actual remote branchs git ls-remote --heads origin
+
+    list all remote (fetched) branches git branch -r
+
+    list all local branches git branch -l
+
+    find to which branch a given commit belongs
+    git branch --contains <COMMIT>
+
+    updating from a forked repository git remote add upstream https://github.com/Microsoft/TypeScript.git git fetch upstream git rebase upstream/master
+
+
+git checkout -b LOCAL_BRANCH origin/REMOTE_BRANCH
+
+git fetch; git pull;
+
+git rebase origin/master
+
+git branch -D LOCAL_BRANCH_TO_DELETE
+
+git push origin :REMOTE_BRANCH_TO_DELETE
+
+git push --force origin MY_BRANCH:REMOTE_BRANCH \\erase the stupid shit i committed
+
+git rebase -i
+bisect
+
+git reset --soft HEAD~ - reset to previous commit, but stage the changes in the latest commit.
+git reset --keep HEAD~ - reset to previous commit, but don't reset the working directory, just change what 
+git reset HEAD~ - reset to previous commit, don't stage the changes, don't touch the working directory. 
+
+
