@@ -29,25 +29,25 @@ END {print "- End -"}
 
 \item [\cmd] \textbf{grep} prints lines matching a pattern:
 \item [\texttt{c}] prints a count of matching lines instead,
-\item [\texttt{e}] uses a ,,regexp'' pattern,
+\item [\texttt{e}] uses a ``regexp'' pattern,
 \item [\texttt{f}] obtains patterns from a file,
 \item [\texttt{i}] ignores case disctinctions,
 \item [\texttt{v}] inverts the sense of matching,
 \item [\texttt{w}] selects only lines containing matches that form whole words,
 \item [\texttt{n}] prints line numbers as well,
-\item [\texttt{A}] prints ,,num'' lines of trailing content,
-\item [\texttt{B}] prints ,,num'' lines of leading content,
-\item [\texttt{C}] prints ,,num'' lines of both contents,
-\item [\texttt{R}] ???,
+\item [\texttt{A}] prints ``num'' lines of trailing content,
+\item [\texttt{B}] prints ``num'' lines of leading content,
+\item [\texttt{C}] prints ``num'' lines of both contents,
+\item [\texttt{R}] reads all files under each directory.
 \item [\cmd] \textbf{sed}: a stream editor filtering/transforming text.
 \end{enumx}
 
 \begin{enumx}
 	\item [\cmdblack] \textbf{comm} compares two sorted files line by line.
 	\item [\cmdblack] \textbf{shuf} generates random permutations:
-	\item [\texttt{e}] treats each ,,arg'' as an input line,
+	\item [\texttt{e}] treats each ``arg'' as an input line,
 	\item [\texttt{i}] treats each number .. through .. as an input line, 
-	\item [\texttt{n}] outputs at most ,,count'' lines,
+	\item [\texttt{n}] outputs at most ``count'' lines,
 	\item [\texttt{r}] output lines can be repeated (with \texttt{-n}).
 	\item [\cmdblack] \textbf{sort} sorts lines of text files:
 	\item [\texttt{c}] checks for sorted input,
@@ -72,19 +72,19 @@ END {print "- End -"}
 	\item [\cmdblack] \textbf{cut} prints selected parts of lines:
 	\item [] \texttt{-}\texttt{-}\texttt{complement} complements the selection,
 	\item [\texttt{c}] selects only these characters,
-	\item [\texttt{d}] uses ,,delim'' instead of Tab for field delimeter,
+	\item [\texttt{d}] uses ``delim'' instead of Tab for field delimeter,
 	\item [\texttt{f}] selects only these fields,
 	\item [\texttt{s}] does not print lines not containing delimeters.
 	\item [\cmdblack] \textbf{join} joins lines of two files on a common field.
 	\item [\cmdblack] \textbf{paste} merges lines of files.
-	\item [\texttt{d}] reuses characters from ,,list'' instead of tabs,
+	\item [\texttt{d}] reuses characters from ``list'' instead of tabs,
 	\item [\texttt{s}] pastes one file at a time, not in parallel.
 	\item [\cmdblack] \textbf{tr} translates or deletes characters:
 	% \item \texttt{tr abc xyz} changes \texttt{a} to \texttt{x}, $\ldots$,
-	\item [c] uses the complement of ,,set1'',
+	\item [c] uses the complement of ``set1'',
 	\item [d] deletes characters, does not translate,
 	\item [s] replaces each sequence of a repeated character that is listed 
-	in the last specified ,,set'' with a single occurrence of that character.
+	in the last specified ``set'' with a single occurrence of that character.
 \end{enumx}
 
 \begin{enumx}
@@ -102,19 +102,19 @@ END {print "- End -"}
 
 \begin{enumx}
 	\item [\cmdblack] \textbf{head} outputs the first (last) part of files:
-	\item [\texttt{c}] the first ,,num'' bytes,
-	\item [\texttt{n}] the first ,,num'' lines,
-	\item [\cmdblack] \textbf{tail} the last ,,num'' bytes:
-	\item [\texttt{c}] the last ,,num'' bytes,
-	\item [\texttt{n}] the last ,,num'' lines,
+	\item [\texttt{c}] the first ``num'' bytes,
+	\item [\texttt{n}] the first ``num'' lines,
+	\item [\cmdblack] \textbf{tail} the last ``num'' bytes:
+	\item [\texttt{c}] the last ``num'' bytes,
+	\item [\texttt{n}] the last ``num'' lines,
 	\item [\texttt{f}] outputs appended data as the file grows,
-	\item [\texttt{s}] sleeps for ,,n'' seconds between iterations. 
+	\item [\texttt{s}] sleeps for ``n'' seconds between iterations. 
 	\item [\cmdblack] \textbf{split} splits a file into pieces:
-	\item [\texttt{a}] generates suffixes of length ,,n'' (default 2),
-	\item [\texttt{b}] puts ,,size'' bytes per output file,
+	\item [\texttt{a}] generates suffixes of length ``n'' (default 2),
+	\item [\texttt{b}] puts ``size'' bytes per output file,
 	\item [\texttt{d}] uses numeric (not alphabetic) suffixes,
-	\item [\texttt{l}] puts ,,number'' lines/records per output file,
-	\item [\texttt{n}] generates ,,chunks'' output files.
+	\item [\texttt{l}] puts ``number'' lines/records per output file,
+	\item [\texttt{n}] generates ``chunks'' output files.
 	\item [\cmdblack] See also: \textbf{csplit}.
 \end{enumx}
 
@@ -134,7 +134,7 @@ END {print "- End -"}
 \begin{enumx}
 	\item [\cmd] \textbf{xargs} builds and executes command lines:
 	\item [\texttt{0}] takes care of filenames with spaces, backslashes.
-	\item [\texttt{I}] replaces occurrences of ,,string'' with names read from standard input.
+	\item [\texttt{I}] replaces occurrences of ``string'' with names read from standard input.
 \end{enumx}
 
 \begin{enumx}
