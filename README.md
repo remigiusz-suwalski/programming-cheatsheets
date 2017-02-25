@@ -11,6 +11,10 @@ Therefore they are totally unsuitable for learners with no prior knowledge.
 2. Python,
 3. Bash (and most popular CLI tools).
 
+## Requirements
+* *pdflatex*
+* the following LaTeX packages: *Alegreya*, *amssymb*, *color*, *enumitem*, *fancyhdr*, *fontenc*, *geometry*, *hyperref*, *inputenc*, *lastpage*, *minted*, *multicol*, *parskip*, *textcomp*, *titlesec*, *xcolor* (each of them is included in vanilla TeX Live)
+
 ## Compilation guide
 To generate a pdf file, just execute 
 `pdflatex -shell-escape [language-name].tex` in a proper directory.
