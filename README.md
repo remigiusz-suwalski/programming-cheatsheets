@@ -14,6 +14,7 @@ Therefore they are totally unsuitable for learners with no prior knowledge.
 ## Requirements
 * *pdflatex*
 * the following LaTeX packages: *Alegreya*, *amssymb*, *color*, *enumitem*, *fancyhdr*, *fontenc*, *geometry*, *hyperref*, *inputenc*, *lastpage*, *minted*, *multicol*, *parskip*, *textcomp*, *titlesec*, *xcolor* (each of them is included in vanilla TeX Live)
+* Pygments from http://pygments.org/ (`pip install Pygments`)
 
 ## Compilation guide
 To generate a pdf file, just execute 
