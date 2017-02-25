@@ -3,18 +3,18 @@
 \begin{enumx}
 	\item [\cmd] \textbf{awk} is a pattern scanning / processing language,
 	a pseudo-C interpretor.
-	Sample code:
+	General form of its code:
 \begin{minted}[linenos, numbersep=3pt, frame=lines, framesep=1mm]{bash}
-BEGIN {print "- Start -"}
-/word/ {print NR ")" $1, $2}
-END {print "- End -"}
+BEGIN {initialization}
+search pattern {actions}
+END {final actions}
 \end{minted}
 
-\item [] Examples of conditions:
+\item [] Examples of search patterns:
 \begin{enumx}
-	\item \texttt{/word[0+9]+/}: regular expressions
-	\item \texttt{!/word[0+9]+/}: regexes inverted
-	\item \texttt{$\sim$} and \texttt{!$\sim$}: matches / does not match.
+	\item \texttt{/word[0+9]+/}: regular expressions,
+	\item \texttt{!/word[0+9]+/}: negations of these,
+	\item \texttt{\$1} \char`\~ \texttt{/word\$/}: matches (\char`\~) or does not (!\char`\~),
 	\item \texttt{length(\$0) > 18}.
 \end{enumx} 
 
