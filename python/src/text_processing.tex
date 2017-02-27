@@ -1,13 +1,12 @@
 \section{Text processing}
-\subsection{Regular expressions (\texttt{re})}
-\python{re.search(pattern, string)} scans through a string, looking for any
+\subsection{Regular expressions (\python{re})}
+\begin{compactitem}
+	\item \python{search(pattern, string)} scans through a string, looking for any
 place where the regex matches.
-
-\python{re.match(pattern, string)} checks whether the regex matches at the
+	\item \python{match(pattern, string)} checks whether the regex matches at the
 beginning of the string.
-
-\python{re.findall(pattern, string)} returns all substrings where the regex
+	\item \python{findall(pattern, string)} returns all substrings where the regex
 matches as a list
-
-\python{re.finditer(pattern, string)} returns all substrings where the regex
+	\item \python{finditer(pattern, string)} returns all substrings where the regex
 matches as an iterator.
+\end{compactitem}

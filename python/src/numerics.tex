@@ -1,16 +1,16 @@
 \section{Numeric and mathematical services}
-\subsection{Pseudo-random numbers (\texttt{random})}
+\subsection{Pseudo-random numbers (\python{random})}
 Python uses the Mersenne Twister as the core generator. It produces 53-bit precision floats and has a period of $2^{19937}-1$.
-For security or cryptographic uses, see the \texttt{secrets} module.
+For security or cryptographic uses, see the \python{secrets} module.
 
 \begin{compactitem}
 	\item \python{.seed(n)} initializes the random number generator.
-	\item \python{.randrange(a, b[, d])} a randomly selected element from \texttt{range(a, b, d)}.
-	\item \python{.randint(a, b)} a random integer in $[a, b]$.
-	\item \python{.choice(seq)} a random element from the non-empty sequence or \texttt{IndexError}.
+	\item \python{.randrange(a, b[, d])}: a randomly selected element from \python{range(a, b, d)}.
+	\item \python{.randint(a, b)}: a random integer in $[a, b]$.
+	\item \python{.choice(seq)}: a random element from the non-empty sequence or \python{IndexError}.
 	\item \python{.choices(population, k=1)} returns $k$ elements (possibly non-unique) from the population.
-	\item \python{.shuffle(x)} shuffle the sequence in place.
+	\item \python{.shuffle(x)} shuffles the sequence in place.
 	\item \python{.sample(population, k)} returns $k$ unique elements from the population.
-	\item \python{.random()} a random float from $[0, 1)$.
+	\item \python{.random()}: a random float from $[0, 1)$.
 	\item [$\blacksquare$]Python implements 11 real-valued distributions as well.
 \end{compactitem}
