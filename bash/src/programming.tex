@@ -5,6 +5,40 @@ interpreter for execution, as in \texttt{\#!/bin/bash}.
 Lines starting with a \texttt{\#} (with the exception of shebang) 
 are comments and thus won't be executed.
 
+\subsection{Quoting and literals}
+\textbf{Single quotes} \texttt{''} preserve the literal value of characters enclosed within them.
+A single quote may not appear between single quotes, even when escaped, but may appear between \textbf{double quotes} \texttt{""}.
+They work similarly, with an exception that the shell expands any variables that appear within them.
+
+\subsection{Variables}
+\textbf{Variable} names are case sensitive.
+They can contain digits and underscores as well,
+but a name starting with a digit is not allowed.
+Example: 
+\begin{minted}{bash}
+var="kind"
+echo ${var}ness # kindness
+\end{minted}
+
+Special variables:
+\begin{enumx}
+    \item \texttt{\$0}: name of the script itself. \texttt{\$1}, \texttt{\$2}, \texttt{\$3}, \ldots: the first, second, etc. argument. \texttt{shift} removes first argument and advances rest of them forward.
+    \item \texttt{\$*} and \texttt{\$@} denote all the positional parameters.
+    \item \texttt{\$\#}: the number of positional parameters
+    \item \texttt{\$?}: most recently executed command exit status.
+    \item \texttt{\$\$}: the process ID of the shell.
+    \item \texttt{\$!}: the process ID of the most recently executed command.
+\end{enumx}
+
+ It reads a line of input from standard input or a file passed as an argument to its -u flag, and assigns it to a variable. In Linux based shells, like Bash, it is present as a shell built in function, and not as a separate executable file.[1]
+
+To read a line of input:
+\begin{enumx}
+\item [\cmd] \textbf{read} reads a line from the stdin and splits it into fields:
+\item [\texttt{n}] returns after reading $n$ characters, 
+\item [\texttt{n}] displays a prompt 
+\end{enumx}
+
 \subsection{Streams}
 There are always three default files open:
 \begin{enumx}
