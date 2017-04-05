@@ -1,0 +1,38 @@
+\section{Linux}
+\textbf{Boot process}:
+\begin{enumx}
+	\item BIOS = Basic Input/Output System initializes the hardware, performs a Power-On Self Test and loads up the bootloader.
+	\item Bootloader (e.g. GRUB) loads the kernel.
+	\item Kernel initializes devices and memory.
+	\item init
+\end{enumx}
+
+MBR/GPT. 
+
+Common file systems include \emph{ext4} and \emph{ReiserFS}.
+Here is the standard hierarchy of directories in Linux:
+\begin{itemx}
+\item \texttt{/} -- the root directory.
+\item \texttt{/boot} -- kernel boot loader files.
+\item \texttt{/dev} -- device files.
+\item \texttt{/etc} -- environment and tool configuration.
+\item \texttt{/home} -- personal directories.
+\item \texttt{/lib} -- library files.
+\item \texttt{/media} -- mount point for removable media.
+\item \texttt{/mnt} -- temporarily mounted filesystems.
+\item \texttt{/opt} -- optional ...
+\item \texttt{/proc} -- runnning processes.
+\item \texttt{/root} -- root's personal directory.
+\item \texttt{/run} -- ???.
+\item \texttt{/sbin}, \texttt{/bin} -- links to \texttt{/usr/bin}
+\item \texttt{/srv} -- ???.
+\item \texttt{/tmp} --  temporary files.
+\item \texttt{/usr} -- Unix system resources.
+\item \texttt{/var} -- variable directory, logs, cache, etc.
+\end{itemx}
+
+Runlevels.
+
+Processes are managed by kernel. Each of them has a unique ID (process ID, PID).
+
+"In multitasking computer operating systems, a daemon is a computer program that runs as a background process, rather than being under the direct control of an interactive user."
