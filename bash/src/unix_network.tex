@@ -16,6 +16,21 @@ on an IP network by sending ICMP ECHO\_REQUEST:
 	avoids to lookup symbolic names for host addresses. 
 \item [\cmd] \textbf{rdate} sets the system's date from a remote host.
 \item [\cmd] \textbf{rlogin} starts a terminal session on a remote host.
+\item [\cmd] \textbf{rsync} copies files fast (remote or local):
+\item [\texttt{a}] in archive mode, equivalent to:
+\item [\texttt{g}] preserves group,
+\item [\texttt{o}] preserves owner (super-user only)
+\item [\texttt{p}] preserves permissions,
+\item [\texttt{t}] preserves modification times,
+\item [\texttt{l}] copies symlinks as symlinks,
+\item [\texttt{b}] make backups, 
+\item [\texttt{c}] skip based on checksum, 
+\item [\texttt{n}] performs a dry run without changes made, 
+\item [\texttt{r}] resursively, 
+\item [\texttt{u}] skip newer files on the receiver, 
+\item [\texttt{v}] increases verbosity, 
+\item [\texttt{z}] compresses file data during the transfer,
+\item [\texttt{}] \texttt{----delete} deletes extraneous files from dest dirs.
 \item [\cmd] \textbf{route} shows and manipulates the IP routing table.
 \item [\cmd] \textbf{ssh} is an OpenSSH SSH client (remote login program).
 \item [\texttt{D}] (bind address)
