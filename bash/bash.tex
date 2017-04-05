@@ -15,10 +15,20 @@
 \headsep 5pt            
 
 \usepackage{minted} % highlighted source code
-\usepackage[usenames,dvipsnames]{color} % colour control
-\usepackage{xcolor} % driver-independent color extensions
-\usepackage{amssymb} % provides an extended symbol collection
+\usemintedstyle{pastie}
 
+\usepackage[compact]{titlesec} % selects alternative section titles
+\usepackage{Alegreya}
+\usepackage{amssymb} % provides an extended symbol collection
+\usepackage{hyperref}
+\usepackage{lastpage} % reference last page
+\usepackage{parskip} % layout with zero \parindent, non-zero \parskip
+\usepackage{xcolor} % driver-independent color extensions
+
+\newcommand{\manualbreak}{\vspace*{\fill}\columnbreak}
+\newcommand{\cmdblack}{$\blacksquare$}
+\newcommand{\cmd}{$\bigstar$}
+ 
 \usepackage{enumitem} % control layout of itemize, enumerate, description
 \newenvironment{enumx} {
 	\begin{enumerate}[leftmargin=*]
@@ -28,29 +38,10 @@
 	\setlength{\parsep}{0pt}
 	}
 {\end{enumerate}}
-\newenvironment{itemx} {
-	\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-	%\setlength{\itemsep}{0pt}
-	%\setlength{\parskip}{0pt}
-	%$\setlength{\parsep}{0pt}
-	}
-{\end{itemize}}
 
-\usepackage{parskip} % layout with zero \parindent, non-zero \parskip
-\usepackage{titlesec} % selects alternative section titles
-\titlespacing\section{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsubsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\newenvironment{itemx}
+	{\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]}{\end{itemize}}
 
-\usepackage{lastpage} % reference last page
-\usepackage{Alegreya}
-\usepackage{hyperref}
-
-
-\newcommand{\manualbreak}{\vspace*{\fill}\columnbreak}
-\newcommand{\cmdblack}{$\blacksquare$}
-\newcommand{\cmd}{$\bigstar$}
- 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
@@ -60,6 +51,21 @@
 \fancyhead[RO,RE]{source: \url{https://git.io/vMQlp}} 
 \fancyfoot[RF]{author: Remigiusz Suwalski, date: \today}
 \fancyfoot[LF]{\cmd \, denotes a command, \cmdblack \, a coreutils command, \texttt{f} -- a flag}
+
+\begin{multicols}{3}
+\textbf{Bash}, a command line interface for interacting with the operating system, was created in the 1980s.
+Other popular shells are zsh and fish.
+
+\input{src/programming}
+
+\input{src/regex}
+
+\input{src/sed_awk}
+
+\input{src/shortcuts}
+\end{multicols}
+
+\newpage
 
 \begin{multicols}{3}
 \section{Unix utilities and shell builtins}
@@ -86,20 +92,15 @@
 \subsection{Searching}
 \input{src/unix_search}
 
-%\subsection{Documentation}
+\subsection{Hardware}
+\input{src/unix_hw}
+
+\subsection{For programmers}
+\input{src/unix_programmers}
 
 \subsection{Miscellaneous}
 \input{src/unix_miscellaneous}
-
-\input{src/regex}
-
-\input{src/shortcuts}
 \end{multicols}
-
-\newpage
-\begin{multicols*}{2}
-\input{src/programming}
-\end{multicols*}
 \end{document}
 
 Todo:
