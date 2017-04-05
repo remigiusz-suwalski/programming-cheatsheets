@@ -1,0 +1,50 @@
+
+\subsection{sed -- stream editor}
+The default delimiters is \texttt{/}, but any other will work too.
+Some sed commmands:
+\begin{enumx}
+\item to substitute (s) strings globally (g):\\
+\texttt{sed 's/foo/bar/g'}
+\item to substitute only in lines containing \texttt{baz}:\\
+\texttt{sed '/baz/s/foo/bar/g'}
+\item to substitute only in lines without \texttt{baz}:\\
+\texttt{sed '/baz/!s/foo/bar/g'}
+\item to use regular expressions:\\
+\texttt{sed 's/[0-9]\textbackslash+/(\&)/g'}
+\item to delete the first 10 lines:\\
+\texttt{sed '1-10d'}
+\item to delete the last line:\\
+\texttt{sed '\$d'}
+\item to edit files in place:\\
+\texttt{sed -i 's/foo/bar/g' *.txt}
+\item [--] \texttt{n} suppresses automatic printing of pattern space:
+\item \texttt{sed -n '45,50p'} \dotfill prints lines 45th to 50th.
+\item \texttt{sed -n 'FLEX.\textbackslash\{65\textbackslash\}/p'} \dotfill prints lines of 65 characters or more
+\item \texttt{sed -n 'FLEX.\textbackslash\{65\textbackslash\}/!p'} \dotfill prints lines of 64 characters or less
+\end{enumx}
+
+\subsection{awk -- Aho, Weinberger, Kernighan}
+Awk is a pseudo-C interpretor.
+General form of its code:
+\begin{minted}[linenos, numbersep=3pt, frame=lines, framesep=1mm]{bash}
+BEGIN {initialization}
+search pattern {actions}
+END {final actions}
+\end{minted}
+
+Examples of search patterns:
+\begin{enumx}
+	\item \texttt{/word[0+9]+/}: regular expressions,
+	\item \texttt{!/word[0+9]+/}: negations of these,
+	\item \texttt{\$1} \char`\~\, \texttt{/a/}: matches or does not (!\char`\~) lines with a,
+	\item \texttt{length(\$0) > 18}.
+\end{enumx} 
+
+Important variables:
+\begin{enumx}
+\item \textbf{FS}: field separator (tab and space by default),
+\item \textbf{OFS}: output field separator,
+\item \textbf{RS}: record separator (new line),
+\item \textbf{NR}: number of the current record,
+\item \textbf{NF}: number of fields in the current record. 
+\end{enumx}

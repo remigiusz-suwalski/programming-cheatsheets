@@ -1,32 +1,7 @@
 \renewcommand\theFancyVerbLine{\normalsize\arabic{FancyVerbLine}}
 
 \begin{enumx}
-	\item [\cmd] \textbf{awk} is a pattern scanning / processing language,
-	a pseudo-C interpretor.
-	General form of its code:
-\begin{minted}[linenos, numbersep=3pt, frame=lines, framesep=1mm]{bash}
-BEGIN {initialization}
-search pattern {actions}
-END {final actions}
-\end{minted}
-
-\item [] Examples of search patterns:
-\begin{enumx}
-	\item \texttt{/word[0+9]+/}: regular expressions,
-	\item \texttt{!/word[0+9]+/}: negations of these,
-	\item \texttt{\$1} \char`\~ \texttt{/word\$/}: matches (\char`\~) or does not (!\char`\~),
-	\item \texttt{length(\$0) > 18}.
-\end{enumx} 
-
-\item [] Important variables:
-\begin{enumx}
-	\item FS: field separator (tab and space by default),
-	\item OFS: output field separator,
-	\item RS: record separator (new line),
-	\item NR: number of the current record,
-	\item NF: number of fields in the current record.
-\end{enumx} 
-
+	\item [\cmd] \textbf{awk} is a pattern scanning / processing language.
 \item [\cmd] \textbf{grep} prints lines matching a pattern:
 \item [\texttt{c}] prints a count of matching lines instead,
 \item [\texttt{e}] uses a ``regexp'' pattern,
