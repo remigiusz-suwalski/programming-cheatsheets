@@ -39,6 +39,79 @@ To read a line of input:
 \item [\texttt{n}] displays a prompt 
 \end{enumx}
 
+\subsection{Expansions}
+There is a tilde expansion as well.
+The expressions \texttt{$\sim$} and \texttt{$\sim$<user>} expand to the home directory of the current (or given) user. 
+
+\subsubsection{Brace expansion}
+Brace expansion is used when we need to generate all possible string combinations.
+Both of the commands produce the same output:
+\begin{minted}{bash}
+echo {I,really,love,dots}.
+echo I. really. love. dots.
+\end{minted}
+
+\textbf{Warning}: it does not expand the variables (\texttt{\$var}), which is done later, but supports ranges (sequences) of characters:
+\begin{minted}{bash}
+echo {a..t}
+a b c d e f g h i j k l m n o p q r s t
+\end{minted}
+
+and (maybe zero paded or with an increment rate) integers, assuming the Bash version is 4 or newer:
+
+\begin{minted}{bash}
+echo {01..10..1}.~
+01. 02. 03. 04. 05. 06. 07. 08. 09. 10.
+\end{minted}
+
+\subsubsection{Parameter expansion}
+\begin{enumerate}
+\item \mintinline{bash}{${var^}}, \mintinline{bash}{${var,}} convert first character to upper and lowercase. \mintinline{bash}{${var^^}}, \mintinline{bash}{${var,,}} do the same to all characters.
+
+\mintinline{bash}{${var~}}, \mintinline{bash}{${var~~}} are undocumented now: they reverse the case.
+
+In case of the array expansion, every expanded element changes case, no matter what.
+
+\item \mintinline{bash}{${var#pattern}} removes the \texttt{pattern} from the beginning of the string, if possible.
+
+It's greedy variant is \mintinline{bash}{${var##pattern}}.
+
+\mintinline{bash}{${var%pattern}} and \mintinline{bash}{${var%%pattern}} do the same, but  from the end of the string.
+
+Application: extracting parts of a filename.
+
+\item \mintinline{bash}{${var/pattern/string}} performs a single search and replace operation.
+
+\mintinline{bash}{${var//pattern/string}} searches for all occurrences of the pattern and replaces them.
+
+\item \mintinline{bash}{${#var}} returns length of the string.
+
+\item \mintinline{bash}{${var:offset:length}} skips first \texttt{offset} characters from \texttt{var} and truncates the output to given length.
+\texttt{:length} may be skipped.
+
+Negative values separated with extra space are accepted.
+
+\item \mintinline{bash}{${var:-value}} uses a default value, if \texttt{var} is empty or unset.
+
+\mintinline{bash}{${var:=value}} does the same, but performs an assignment as well.
+
+\mintinline{bash}{${var:+value}} uses an alternative value if \texttt{var} isn't empty or unset!
+\end{enumerate}
+
+\subsubsection{Command substitution}
+To execute commands in a subshell and then pass their standard output, use \mintinline{bash}{$( commands )}.
+
+\subsubsection{Process substitution}
+This kind of substitution (where input or output of a command appears as a temporary file) is performed simultaneously with the following: arithmetic and parameter expansions, command substitution.
+\begin{minted}{bash}
+<( ... ) # not specified by POSIX!
+>( ... )
+\end{minted}
+
+\subsubsection{Arithmetic expansion}
+The arithmetic expression \mintinline{bash}{$(( ... ))} is evaluated and expands to the result.
+Bash guarantees that the output will be a one-word integer.
+
 \subsection{Streams}
 There are always three default files open:
 \begin{enumx}
