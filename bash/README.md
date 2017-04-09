@@ -7,6 +7,9 @@ and tasks which are useful for IT work or for advanced users.
 This is a practical guide with concise explanations, 
 however the reader is supposed to know what s/he is doing.*
 
+7. **The Bash Hackers Wiki** at <http://wiki.bash-hackers.org/start> provides human-readable documentation and information so users aren't forced to read every bit of the Bash manpage - which can be difficult to understand.
+Contains a lot of further hyperlinks.
+
 3. **BASH and GNU/Linux Cheat Sheet** by Martin Bruchanov 
 at <http://bruxy.regnet.cz/web/linux/EN/bash-cheat-sheet/>
 Another Bash cheat sheet typeset in LaTeX.
@@ -26,3 +29,5 @@ you can find everything you need to know about regular expressions.*
 
 5. **Vim Cheat Sheet for Programmers** by Michael at 
 <http://michael.peopleofhonoronly.com/vim/>.
+
+Try to **avoid** the Advanced Bash Scripting Guide at <http://tldp.org/>, because it "has a lot of information that is hard to find, is outdated and often unsafe. To be avoided until you can filter out the good stuff.". The Bash Programming Introduction HowTo is "absolute crap, [as it contains] many syntax errors alone." (citation from the Bash Hackers Wiki).
