@@ -15,9 +15,16 @@
 \headsep 5pt            
 
 \usepackage{minted} % highlighted source code
-\usepackage[usenames,dvipsnames]{color} % colour control
-\usepackage{xcolor} % driver-independent color extensions
+\usemintedstyle{pastie}
+
+\usepackage[compact]{titlesec} % selects alternative section titles
+\usepackage{Alegreya}
 \usepackage{amssymb} % provides an extended symbol collection
+\usepackage{hyperref}
+\usepackage{lastpage} % reference last page
+\usepackage{parskip} % layout with zero \parindent, non-zero \parskip
+\usepackage{xcolor} % driver-independent color extensions
+
 
 \usepackage{enumitem} % control layout of itemize, enumerate, description
 \newenvironment{enumx} {
@@ -28,30 +35,16 @@
 	\setlength{\parsep}{0pt}
 	}
 {\end{enumerate}}
-\newenvironment{itemx} {
-	\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-	%\setlength{\itemsep}{0pt}
-	%\setlength{\parskip}{0pt}
-	%$\setlength{\parsep}{0pt}
-	}
-{\end{itemize}}
 
-\usepackage{parskip} % layout with zero \parindent, non-zero \parskip
-\usepackage{titlesec} % selects alternative section titles
-\titlespacing\section{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsubsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\newenvironment{itemx}
+	{\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]}{\end{itemize}}
 
-\usepackage{lastpage} % reference last page
-\usepackage{Alegreya}
-\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
 \newcommand{\manualbreak}{\vspace*{\fill}\columnbreak}
 \newcommand{\cmdblack}{$\blacksquare$}
 \newcommand{\cmd}{$\bigstar$}
- 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 
 \begin{document}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -59,8 +52,46 @@
 \fancyhead[RO,RE]{source: --} 
 \fancyfoot[RF]{author: Remigiusz Suwalski, date: \today}
 %\fancyfoot[LF]{}
-
 \begin{multicols*}{3}
-C++.
+\section{Data types}
+\begin{enumx}
+\item Boolean: \texttt{bool}, 
+\item Character: \texttt{char}, 
+\item Integer: \texttt{int}, 
+\item Floating point: \texttt{float}, 
+\item Double floating point: \texttt{double}, 
+\item Valueless: \texttt{void}, 
+\item Wide character: \texttt{wchar\_t}.
+\end{enumx}
+
+\section{Conditionals}
+
+\begin{minted}{c++}
+if (condition) {
+	// commands;
+} else {
+	// commands;
+}
+\end{minted}
+Loops:
+
+\begin{minted}{c++}
+for (initialization, test, action) {
+	commands;
+}
+\end{minted}
+
+\begin{minted}{c++}
+while (conditions) {
+	commands;
+}
+\end{minted}
+
+\begin{minted}{c++}
+do {
+	commands;
+} while (conditions);
+\end{minted}
+
 \end{multicols*}
 \end{document}
