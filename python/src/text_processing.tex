@@ -1,12 +1,29 @@
-\section{Text processing}
-\subsection{Regular expressions (\python{re})}
+\section{Text processing services}
+The modules described in this chapter provide a wide range of string manipulation operations and other text processing services.
+\subsection{string}
+Common string operations
+
+\subsection{Regular expressions (\mintinline{python}{re})}
 \begin{compactitem}
-	\item \python{search(pattern, string)} scans through a string, looking for any
+	\item \mintinline{python}{search(pattern, string)} scans through a string, looking for any
 place where the regex matches.
-	\item \python{match(pattern, string)} checks whether the regex matches at the
+	\item \mintinline{python}{match(pattern, string)} checks whether the regex matches at the
 beginning of the string.
-	\item \python{findall(pattern, string)} returns all substrings where the regex
+	\item \mintinline{python}{findall(pattern, string)} returns all substrings where the regex
 matches as a list
-	\item \python{finditer(pattern, string)} returns all substrings where the regex
+	\item \mintinline{python}{finditer(pattern, string)} returns all substrings where the regex
 matches as an iterator.
 \end{compactitem}
+
+\subsection{difflib}
+Helpers for computing deltas
+\subsection{textwrap}
+Text wrapping and filling
+\subsection{unicodedata}
+Unicode Database
+\subsection{stringprep}
+Internet String Preparation
+\subsection{readline}
+GNU readline interface
+\subsection{rlcompleter}
+Completion function for GNU readline
