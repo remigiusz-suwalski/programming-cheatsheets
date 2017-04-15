@@ -1,89 +1,189 @@
 \section{Built-in types}
 \subsection{Booleans}
-There are eight comparison operations in Python: \\
-\python{<}, \python{<=}, \python{>}, \python{>=}, 
-\python{==}, \python{!=}, \python{is}, \python{is not}.
-Booleans are a subtype of integers (\python{True == 1}, \python{False == 0}).
-
-These are the Boolean operations, ordered by ascending priority: \python{or},
-\python{and}, \python{not}.
+There are three Boolean operations: \mintinline{python}{or}, \mintinline{python}{and} and \mintinline{python}{not}.
+There are eight comparison operations, which can be chained and have higher priority than the Boolean operations:
+\mintinline{python}{<}, 
+\mintinline{python}{<=}, 
+\mintinline{python}{>}, 
+\mintinline{python}{>=}, 
+\mintinline{python}{==}, 
+\mintinline{python}{!=}, 
+\mintinline{python}{is}, 
+\mintinline{python}{is not}.
 
 \subsection{Numeric types}
 Python supports three numeric types: integers, floats and complex numbers.
 Integers have unlimited precision.
-Complex numbers have real (\python{z.real} and imaginary part (\python{z.imag},
+Complex numbers have real (\mintinline{python}{z.real}) and imaginary part (\mintinline{python}{z.imag}),
 both are floats.
 
 Numeric types support the following operations, sorted by ascending priority:
 \begin{compactenum}
-\item \python{+}, \python{-}, \python{*}, \python{/}, \python{//} (floored quotient), \python{\%} (remainder),
-\item \python{abs(x)}, \python{int(x)}, \python{float(x)}, \python{complex(re, im)},
-\item \python{c.conjugate}, \python{divmod} (quotient and remanider),
-\item \python{pow(x, y) == x**y}.
+\item \mintinline{python}{+}, \mintinline{python}{-}, \mintinline{python}{*}, \mintinline{python}{/}, 
+\item \mintinline{python}{//} (floored quotient), \mintinline{python}{%} (remainder),
+\item \mintinline{python}{abs(x)},
+\item \mintinline{python}{int(x)}, \mintinline{python}{float(x)}, \mintinline{python}{complex(re, im)},
+\item \mintinline{python}{c.conjugate}, 
+\item \mintinline{python}{divmod} (quotient and remanider),
+\item \mintinline{python}{pow(x, y) == x**y}.
 \end{compactenum}
 
-% Iterator types
+Bitwise operations, \mintinline{python}{|} (or), \mintinline{python}{^} (xor), \mintinline{python}{&} (and), \mintinline{python}{<<}, \mintinline{python}{>>} (shifts) and \mintinline{python}{~} (inversion) only make sense for integers.
+
+\subsection{Iterator types}
+To-do.
 
 \subsection{Sequence types}
+There are three basic sequence types: 
+lists, tuples, and range objects. 
+Common sequence operations include:
+\begin{compactenum}
+\item \mintinline{python}{x in s} and \mintinline{python}{x not in s},
+\item \mintinline{python}{s + t}, the concatenation,
+\item \mintinline{python}{s * n}, adding \texttt{s} to itself \texttt{n} times,
+\item \mintinline{python}{s[i]}, $i$th item of \texttt{s} and \mintinline{python}{s[i:j:k]}, slicing,
+\item \mintinline{python}{len(s)}, \mintinline{python}{min(s)}, \mintinline{python}{max(s)},
+\item \mintinline{python}{s.index(x)}, index of the first occurrence,
+\item \mintinline{python}{s.count(x)}, total number of occurrences.
+\end{compactenum}
+
+Mutable sequence types support following operations:
+\begin{compactenum}
+\item \mintinline{python}{del s[i:j:k]} removes the elements,
+\item \mintinline{python}{s.append(x)}, 
+\item \mintinline{python}{s.clear()} removes all elements,
+\item \mintinline{python}{s.copy()} creates a shallow copy, 
+\item \mintinline{python}{s.extend(t)},  
+\item \mintinline{python}{s *= n},  
+\item \mintinline{python}{s.insert(i, x)},  
+\item \mintinline{python}{s.pop([i])} removes an item, retrieves it,  
+\item \mintinline{python}{s.remove(x)},  
+\item \mintinline{python}{s.reverse()} reverses the items in place.  
+\end{compactenum}
+
+Lists are mutable and typically store collections of homogeneous items.
+They provide the method \mintinline{python}{sort}, which sorts the list in place.
+May be constructed using:
+\begin{compactenum}
+\item a pair of square brackets: \mintinline{python}{[]}, \mintinline{python}{[1, 2, 3]},
+\item a comprehension: \mintinline{python}{[x for x in iter]}, 
+\item the type constructor: \mintinline{python}{list(iter)}.
+\end{compactenum}
+
+Tuples are immutable and typically store collections of heterogeneous data.
+May be constructed using:
+\begin{compactenum}
+\item a pair of parantheses: \mintinline{python}{()}, \mintinline{python}{(1,)},
+\item the \mintinline{python}{tuple(iterable)} built-in.
+\end{compactenum}
+
+Ranges are immutable sequence of numbers.
+May be constructed using: \mintinline{python}{range(stop)} or the longer version, \mintinline{python}{range(start, stop, step)}.
+
 Useful:
 \begin{minted}{python}
 for index, value in enumerate(list):
     commands
 \end{minted}
 
-\subsection{Strings}
+
+
+
+\subsection{Text sequence type}
+Strings are immutable sequences of Unicode code points surrounded by single, double or triple quotes.
+
 \begin{compactenum}
-\item Case conversion: 
-\python{s.capitalize}, 
-\python{s.casefold} (aggresive lowercase), 
-\python{s.lower}, 
-\python{s.upper}, 
-\python{s.swapcase}, 
-\python{s.title}.
-
-\item Justification: 
+\item Case conversion:
 \begin{compactenum}
-	\item \python{s.center},
-		  \python{s.ljust},
-	      \python{s.rjust},
-
-	\item \python{s.zfill} 
-	(left fills string with a zero),
-
-	\item \python{s.strip} 
-	(removes leading/trailing characters).
+\item \mintinline{python}{.capitalize()},
+\item \mintinline{python}{.casefold()} (aggresive lowercase),
+\item \mintinline{python}{.lower(), lstrip()},
+\item \mintinline{python}{.swapcase()},
+\item \mintinline{python}{.title()},
+\item \mintinline{python}{.upper()}.
+\end{compactenum}
+\item Justification:
+\begin{compactenum}
+\item \mintinline{python}{.center(width, fillchair)},
+\item \mintinline{python}{.ljust(width, fillchair)},
+\item \mintinline{python}{.rjust(width, fillchar)},
+\item \mintinline{python}{.zfill()} left fills with zeroes.
+\end{compactenum}
+\item Search and/or replace:
+\begin{compactenum}
+\item \mintinline{python}{.count(sub, start, end)},
+\item \mintinline{python}{.find(sub, start, end)},
+\item \mintinline{python}{.rfind(sub, start, end)},
+\item \mintinline{python}{.index(sub)} like \mintinline{python}{find}, raises error when text is not found (not $-1$),
+\item \mintinline{python}{.rindex(sub, start, end)},
+\item \mintinline{python}{.replace(old, new, count)},
+\item \mintinline{python}{.endswith(suffix)},
+\item \mintinline{python}{.startswith(prefix)},
+\end{compactenum}
+\item Joining and splitting:
+\begin{compactenum}
+\item \mintinline{python}{.join(iterable)},
+\item \mintinline{python}{.partition(sep)} returns 3-tuple,
+\item \mintinline{python}{.rpartition(sep)} from right,
+\item \mintinline{python}{.split()} splits into the same type,
+\item \mintinline{python}{.rsplit()} splits from right,
+\item \mintinline{python}{.splitlines()},
+\end{compactenum}
+\item \mintinline{python}{.format(*args, **kwargs)},
+\item \mintinline{python}{.strip()} removes leading/trailing chars,
+\item \mintinline{python}{.rstrip()} removes trailing chars only.
 \end{compactenum}
 
-\item Checks:
-\python{s.is}\ldots,
-\python{s.startwith}, 
-\python{s.endswith}.
+% \subsection{Binary sequence types}
 
-\item Searching:
-\python{s.count} 
-\python{s.find} 
-\python{s.index} 
-
-\item Splitting and joining:
+\subsection{Set types}
+A set object is an unordered collection of distinct hashable objects.
+The \mintinline{python}{set} is mutable, \mintinline{python}{frozenset} is not.
+Sets support following operations:
 \begin{compactenum}
-	\item \python{s.join(seq)} joins elements of sequence by the s separator,
-	\item \python{s.split} gives a list of words in the string, using s as the separator,
-	\item \python{s.partition(sep)} return \texttt{(before, sep, after)}.
+	\item \mintinline{python}{len(s)}, \mintinline{python}{x in s}, \mintinline{python}{x not in s},
+	\item \mintinline{python}{copy()}: returns a shallow copy,
+	\item \mintinline{python}{.isdisjoint(other)},
+	\item \mintinline{python}{.issubset(other)}: \mintinline{python}{set1 <= set2},
+	\item \mintinline{python}{.issuperset(other)}: \mintinline{python}{set1 >= set2},
+	\item \mintinline{python}{set1 < set2}: being proper subset,
+	\item \mintinline{python}{set1 > set2}: being proper superset,
+	\item \mintinline{python}{union(*sets)}: \mintinline{python}{set1 | set2 | ...},
+	\item \mintinline{python}{intersection(*sets)}: \mintinline{python}{set1 & set2 ...}, 
+	\item \mintinline{python}{difference(*sets)}: \mintinline{python}{set1 - set2 - ...}, 
+	\item \mintinline{python}{symmetric_difference(other)}: \mintinline{python}{set1 ^ set2}.
 \end{compactenum}
 
-\item Encoding: 
-\python{s.encode} 
+Mutable sets support following operations as well:
+\begin{compactenum}
+	\item \mintinline{python}{.add()},
+	\item \mintinline{python}{.remove()} raises errors,
+	\item \mintinline{python}{.discard()} doesn't raise errors,
+	\item \mintinline{python}{.pop()} removes and returns an element,
+	\item \mintinline{python}{.clear()} removes all elements.
 \end{compactenum}
 
- \subsection{Sets}                                                               
- A set object is an unordered collection of distinct hashable objects.   
- Frozenset is an immutable set.
- \begin{compactenum}                                                                   
- \item Set theoretic operations: \python{| \& - \^}                              
-   (union, intersection, difference, symmetric difference)                       
- \item \python{< <= > >=} inclusion relations                                    
- \item \python{add}, \python{remove}, \python{discard} operate on single elements
- \item \python{clear} removes all elements                                       
- \end{compactenum}
 
-\subsection{Dictionaries}
+\subsection{Mapping types (\texttt{dict})}
+A (mutable) dictionary maps hashable values to arbitrary objects.
+
+These are the operations that dictionaries support:
+\begin{compactenum}
+\item  \mintinline{python}{len(d)},
+\mintinline{python}{d[key]},
+\mintinline{python}{key in d},
+\mintinline{python}{key not in d},
+\item  \mintinline{python}{del d[key]} removes \texttt{d[key]} from \texttt{d}.
+\item  \mintinline{python}{iter(d)} returns an iterator over keys,
+\item  \mintinline{python}{clear()} removes all items,
+\item  \mintinline{python}{copy()} returns a shallow copy,
+\item \mintinline{python}{pop(key)}, \mintinline{python}{popitem()}, 
+\item \mintinline{python}{items()} returns keys and values,
+\item \mintinline{python}{keys()} returns keys,
+\item \mintinline{python}{values}, 
+\item \mintinline{python}{update()}.
+\end{compactenum}
+
+
+
+
