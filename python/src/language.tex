@@ -1,26 +1,29 @@
-\section{Compound statements}
+\section{Language reference}
+A comment starts with a hash character \mintinline{python}{#
+}
+
 \subsection{Conditionals}
 \begin{minted}{python}
 if expression:
-    commands
+  commands
 elif expression:
-    commands:
+  commands:
 else:
-    commands
+  commands
 \end{minted}
 
 \subsection{Loops}
 \begin{minted}{python}
 while expression:   for element in list:
-    commands            commands
+  commands            commands
 else:               else:
-    commands            commands
+  commands            commands
 \end{minted}
 
-Note: A \python{break} statement executed in the first suite terminates 
-the loop without executing the \python{else} clause's suite.
+Note: A \mintinline{python}{break} statement executed in the first suite terminates 
+the loop without executing the \mintinline{python}{else} clause's suite.
 
-To terminate immediately the nearest enclosing loop, use \python{break}.
-To skip to the next iteration instead, use \python{continue}.
+To terminate immediately the nearest enclosing loop, use  \mintinline{python}{break}.
+To skip to the next iteration instead, use \mintinline{python}{continue}.
 
 Loopnig on dictionaries and sets loops on keys.
