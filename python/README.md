@@ -5,3 +5,6 @@ External hyperlinks:
 *This simple reference card focused on language parts necessary to start with algorithms / programming. 
 It gives general informations needed by students to start. 
 Note: It don't deal with object oriented programming.*
+
+2. **Beginner's Python Cheat Sheet** by Eric Matthes at <http://ehmatthes.github.io/pcc/cheatsheets/README.html>.
+*Provides an overview of the basics of Python including variables, lists, dictionaries, functions, classes, and (much) more.*
