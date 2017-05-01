@@ -6,7 +6,8 @@
     bottom=1.25cm]{geometry}
 \usepackage{multicol}
 
-\usepackage{fancyhdr} % extensive control of page headers and footers
+% extensive control of page headers and footers
+\usepackage{fancyhdr} 
 \makeatletter
 \fancypagestyle{mypagestyle}
 {\newpage \fancyfoot[C]{} \renewcommand{\footrulewidth}{0pt}}
@@ -14,60 +15,68 @@
 \pagestyle{mypagestyle}
 \headsep 5pt            
 
-\usepackage{minted} % highlighted source code
+% highlighted source code
+\usepackage{minted} 
 \usemintedstyle{pastie}
 
-\usepackage[compact]{titlesec} % selects alternative section titles
+% selects alternative section titles
+\usepackage[compact]{titlesec} 
+\titlespacing{\section}{0pt}{\parskip}{0}
+\titlespacing{\subsection}{0pt}{\parskip}{0}
+\titlespacing{\subsubsection}{0pt}{\parskip}{0}
+
+% custom font
 \usepackage{Alegreya}
-\usepackage{amssymb} % provides an extended symbol collection
+% provides an extended symbol collection
+\usepackage{amssymb} 
 \usepackage{hyperref}
-\usepackage{lastpage} % reference last page
-\usepackage{parskip} % layout with zero \parindent, non-zero \parskip
-\usepackage{xcolor} % driver-independent color extensions
+% reference last page
+\usepackage{lastpage}
+% layout with zero \parindent, non-zero \parskip 
+\usepackage{parskip} 
+% driver-independent color extensions
+\usepackage{xcolor} 
+% compact list environment
+\usepackage{paralist}
+\usepackage{microtype}
 
 \newcommand{\manualbreak}{\vspace*{\fill}\columnbreak}
-\newcommand{\cmdblack}{$\blacksquare$}
-\newcommand{\cmd}{$\bigstar$}
+
+\newcommand{\cmdcore}{$\blacksquare$}
+\newcommand{\cmdutil}{$\boxplus$}
+\newcommand{\cmdvar}{$\square$}
  
-\usepackage{enumitem} % control layout of itemize, enumerate, description
-\newenvironment{enumx} {
-	\begin{enumerate}[leftmargin=*]
-	\setlength{\topsep}{0pt}
-	\setlength{\itemsep}{0pt}
-	\setlength{\parskip}{0pt}
-	\setlength{\parsep}{0pt}
-	}
-{\end{enumerate}}
-
-\newenvironment{itemx}
-	{\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]}{\end{itemize}}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
 \begin{document}
 \renewcommand{\footrulewidth}{0.4pt}
-\fancyhead[LE,LO]{Linux/Bash -- cheat sheet (page \thepage/\pageref{LastPage})}
+\fancyhead[LE,LO]{Linux/Bash -- quick reference (page \thepage/\pageref{LastPage})}
 \fancyhead[RO,RE]{source: \url{https://git.io/vMQlp}} 
-\fancyfoot[RF]{author: Remigiusz Suwalski, date: \today}
-\fancyfoot[LF]{\cmd \, denotes a command, \cmdblack \, a coreutils command, \texttt{f} -- a flag}
+\fancyfoot[RF]{author: Remigiusz Suwalski,\\ date: \today}
+\fancyfoot[LF]{\cmdcore \,: coreutils 8.27, \cmdutil \,: util-linux 2.29, \cmdvar \,: other commands.}
 
-\begin{multicols}{3}
+\begin{multicols*}{3}
 \textbf{Bash}, a command line interface for interacting with the operating system, was created in the 1980s.
-Other popular shells are zsh and fish.
+Other popular shells are \emph{zsh} and \emph{fish}.
 
 \input{src/programming}
 
-\input{src/regex}
+\input{src/shortcuts}
+
+\input{src/style_guide}
+
+\vfill\null\columnbreak
 
 \input{src/sed_awk}
 
-\input{src/shortcuts}
-\end{multicols}
+\input{src/regex}
+
+\end{multicols*}
 
 \newpage
 
-\begin{multicols}{3}
+\begin{multicols*}{3}
 \section{Unix utilities and shell builtins}
 % Based on https://en.wikipedia.org/wiki/Template:Unix_commands
 
@@ -100,7 +109,7 @@ Other popular shells are zsh and fish.
 
 \subsection{Miscellaneous}
 \input{src/unix_miscellaneous}
-\end{multicols}
+\end{multicols*}
 \end{document}
 
 Todo:
