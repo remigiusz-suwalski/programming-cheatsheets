@@ -1,7 +1,7 @@
 \subsection{Regular expressions}
-\begin{itemx}
+\begin{compactenum}
 \item POSIX character classes:
-\begin{itemx}
+\begin{compactenum}
 \item \texttt{[:alnum:]} $=$ \texttt{[a-zA-Z0-9]}
 \item \texttt{[:alpha:]} $=$ \texttt{[a-zA-Z]}
 \item \texttt{[:ascii:]} $=$ \texttt{[\textbackslash{}x00-\textbackslash{}x7F]}
@@ -15,25 +15,41 @@
 \item \texttt{[:space:]} $=$ \texttt{[ \textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}v\textbackslash{}f]}
 \item \texttt{[:word:]} $=$ \texttt{[A-Za-z0-9\_]}
 \item \texttt{[:xdigit:]} $=$ \texttt{[A-Fa-f0-9]}
-\end{itemx}
+\end{compactenum}
 \item Repetitions:
-\begin{itemx}
+\begin{compactenum}
 \item \texttt{*}: $0$ or more, \texttt{+}: $1$ or more, \texttt{?}: $0$ or $1$,
 \item \texttt{\{a, b\}}: at least $a$, at most $b$.
-\end{itemx}
+\end{compactenum}
 \item Anchors:
-\begin{itemx}
+\begin{compactenum}
 \item \texttt{\textasciicircum}: start of line,
 \item \texttt{\$}: end of line, 
 \item \texttt{\textbackslash{}<}: start of word, 
 \item \texttt{\textbackslash{}>}: end of word.
-\end{itemx}
+\end{compactenum}
 \item Other:
-\begin{itemx}
+\begin{compactenum}
 \item \texttt{one|two}: one or two,
 \item \texttt{(one)}: a group,
 \item \texttt{\$n}: $n$th group,
 \item \texttt{[abcd]}, \texttt{[a-d]}: ranges,
 \item \texttt{[\textasciicircum{}abcd]}: negation (not \texttt{[abcd]}).
-\end{itemx}
-\end{itemx}
+\end{compactenum}
+\end{compactenum}
+
+Awk regex:
+\begin{minted}{bash}
+/^(ab|c)*[0-9]+/
+\end{minted}
+
+Grep regex (with \texttt{-E} flag):
+\begin{minted}{bash}
+^(ab|c)*[[:digit:]]+
+\end{minted}
+
+Sed regex:
+\begin{minted}{bash}
+sed "s/^\(ab|c\)*[[:digit:]]+/\1\1/"
+\end{minted}
+

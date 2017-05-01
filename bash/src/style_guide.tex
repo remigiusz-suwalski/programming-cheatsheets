@@ -1,0 +1,47 @@
+\section{Shell style guide}
+The following notes are meant to be summary of a style guide written by Paul Armstrong and too many more to mention (revision 1.26).
+
+Bash is the only shell scripting language permitted for executables.
+Bash should only be used for simple wrapper scripts or small utilities.
+
+Executables should have no extension, libraries must have a \texttt{.sh} extension and should not be executable.
+SUID and SGID are \emph{forbidden} on shell scripts.
+
+All error messages should go to \texttt{STDERR},
+a function to print out error messages along with other status information is recommended:
+\begin{minted}{bash}
+err () {
+  echo "[$(date +%Y-%m-%d\ %T)]: $@" >&2
+}
+\end{minted}
+
+\textbf{Comments}.
+Start each file with a description of its contents.
+Any function that is in a library or not both obvious and short, must be commented.
+Comment tricky, interesting or important parts of code.
+Use TODO comments for temporary or good enough but not perfect code and short-term solutions.
+
+The following are required for any new code:
+\begin{compactenum}
+\item Indent 2 spaces, no tabs.
+\item Maximum line length is 80 characters.
+\item Long pipelines should be split one per line. % if they don't all fit on one line.
+% \item Put \texttt{; do} and \texttt{; then} on the same line as the \texttt{while}, \texttt{for} or \texttt{if}.
+\item Indent case alternatives by 2 spaces.
+\item Always quote strings containing variables, command substitutions or spaces. %or shell meta characters. % , unless unquoted expansion is required. 
+\end{compactenum}
+
+Use quotes rather than filler characters if possible.
+Use an explicit path when doing wildcard expansion of filenames.
+Avoid \texttt{eval}.
+Use process substitution or for loops in preference to piping to while.
+Finally, \texttt{[[ ... ]]} is preferred over \texttt{[} and \texttt{test}.
+
+\textbf{Naming conventions}.
+Function and variable names should be lower case, with underscore to separate words.
+Constants and environment variable names should be all caps, declared at the top of the file.
+Use \texttt{readonly} or \texttt{declare -r} to ensure they're read only.
+Declare function specific variables with \texttt{local}.
+A function called main is required for scripts long enough to contain at least one other function.
+
+

@@ -1,66 +1,65 @@
-\begin{enumx}
-	\item [\cmdblack] \textbf{cat} concatenates and prints files:
+\begin{compactenum}
+	\item [\cmdcore] \textbf{cat} concatenates and prints files:
 	\item [\texttt{A}] shows all nonprinting characters,
 	\item [\texttt{b}] numbers nonempty output lines,
-	\item [\texttt{n}] numbers all output lines,
+	%\item [\texttt{n}] numbers all output lines,
 	\item [\texttt{s}] suppresses repeated empty output lines.
     % tac -r -s 'x|[^x]'
-	\item [\cmdblack] \textbf{tac} does the same in reverse.
-	\item [\cmd] \textbf{rev} reverses lines characterwise.
-	\item [\cmdblack] \textbf{nl} numbers lines of files:
+	\item [\cmdcore] \textbf{tac} does the same in reverse.
+	\item [\cmdvar] \textbf{rev} reverses lines characterwise.
+	\item [\cmdcore] \textbf{nl} numbers lines of files:
 	\item [\texttt{s}] adds ``string'' after line number,
 	\item [\texttt{w}] uses ``number'' columns for line numbers.
-\end{enumx}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmdblack] \textbf{chgrp} changes group ownership.
+\begin{compactenum}
+	\item [\cmdcore] \textbf{chgrp} changes group ownership.
 	
-	\item [\cmdblack] \textbf{chmod} changes permissions of a file:
-	\item [\texttt{ugoa}] permissions of the owner, group, other/all users,
+	\item [\cmdcore] \textbf{chmod} changes permissions of a file:
+	\item [\texttt{ugoa}] of the owner, group, other or all users,
 	\item [\texttt{+-=}] adds, removes or sets selected file mode bits,
-	\item [\texttt{rwx}] selects file mode bits: read/write/execute (4/2/1).
+	\item [\texttt{rwx}] selects file mode bits: read 4/write 2/execute 1.
 	
-	\item [\cmdblack] \textbf{chown} changes owner of a file.
+	\item [\cmdcore] \textbf{chown} changes owner of a file.
 	
-	\item [\cmd] \textbf{umask} sets file mode creation mask.
+	\item [\cmdvar] \textbf{umask} sets file mode creation mask.
 
-	\item [\cmdblack] \textbf{touch} changes file timestamps:
+	\item [\cmdcore] \textbf{touch} changes file timestamps:
 	\item [\texttt{a}] only the access time,
 	\item [\texttt{m}] only the modification time,
 	\item [\texttt{t}] uses custom stamp instead of current time,
 	\item [\texttt{c}] does not create files.
-\end{enumx}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmdblack] \textbf{shasum} prints or checks SHA message digests:
+\begin{compactenum}
+	\item [\cmdcore] See also: \textbf{cksum} (CRC checksums), \textbf{md5sum}.
+	\item [\cmdcore] \textbf{shasum} prints or checks SHA message digests:
 	\item [\texttt{a}] algorithm: 1, 224, 256, 384, 512, 512224 or 512256,
 	\item [\texttt{b}] reads in binary mode,
 	\item [\texttt{c}] checks SHA sums read from the ``files''.
-
-	\item [\cmdblack] See also \textbf{cksum} (CRC checksums) and \textbf{md5sum}.
-	\item [\cmdblack] \textbf{wc} prints newline, word and byte counts (\texttt{lwc}):
+	\item [\cmdcore] \textbf{wc} prints newline, word and byte counts (\texttt{lwc}):
 	%\item [\texttt{c}] prints the byte counts,
 	%\item [\texttt{l}] prints the newline counts,
 	\item [\texttt{m}] prints the character counts,
 	%\item [\texttt{w}] prints the word counts.
 	\item [\texttt{L}] prints the maximum display width.
-\end{enumx}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmdblack] \textbf{dd} converts and copies a file:
-	\item [\texttt{if=}] reads from a file instead of standard input,
-	\item [\texttt{of=}] writes to a file insteaed of standard output,
-	\item [\texttt{bs=}] up to ``bytes'' bytes at a time,
-	\item [\texttt{count=}] copies only ``n'' input blocks.
-\end{enumx}
+\begin{compactenum}
+	\item [\cmdcore] \textbf{dd} converts and copies a file:
+	\item \texttt{if=} reads from a file,
+	\item \texttt{of=} writes to a file,
+	\item \texttt{bs=} up to ``bytes'' bytes at a time,
+	\item \texttt{count=} copies only ``n'' input blocks.
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmdblack] \textbf{cp} copies files and directories:
-%	\item [\texttt{a}] never follows symlinks, preserves all attributes,
-	\item [\texttt{b}] makes a backup of each existing destination file,
+\begin{compactenum}
+	\item [\cmdcore] \textbf{cp} copies files and directories:
+	\item [\texttt{b}] makes a backup of existing destination files,
 	\item [\texttt{f}] removes an existing destination file if needed,
 	\item [\texttt{i}] prompts before overwrite,
 	\item [\texttt{n}] does not overwrite existing files,
+%	\item [\texttt{a}] never follows symlinks, preserves all attributes,
 	\item [\texttt{L}] always follows symlinks in ``source'',
 	\item [\texttt{P}] never follows symlinks in ``source'',
 	\item [\texttt{p}] preserves timestamps, mode, ownership,
@@ -72,8 +71,8 @@
 	\item [\texttt{u}] copies only newer source files,
 	\item [\texttt{v}] explains what is being done.
 	
-	\item [\cmdblack] \textbf{mv} moves (renames) files:
-	\item [\texttt{b}] makes a backup of each existing destination file,
+	\item [\cmdcore] \textbf{mv} moves (renames) files:
+	\item [\texttt{b}] makes a backup of existing destination files,
 	\item [\texttt{i}] prompts before overwriting,
 	\item [\texttt{f}] does not prompt before overwriting,
 	\item [\texttt{n}] does not overwrite existing destination files.
@@ -82,77 +81,77 @@
 	\item [\texttt{u}] moves only newer source files,
 	\item [\texttt{v}] explains what is being done.
 	
-	\item [\cmdblack] \textbf{rm} removes files or directories:
+	\item [\cmdcore] \textbf{rm} removes files or directories:
 	\item [\texttt{f}] never prompts,
 	\item [\texttt{i}] always prompts,
 	\item [\texttt{r}] removes directories and their contents.
 
-	\item [\cmdblack] See also \textbf{rmdir} (directories removal) and \textbf{shred}.
+	\item [\cmdcore] See also: \textbf{rmdir} (directories removal), \textbf{shred}.
 
-	\item [\cmdblack] \textbf{mkdir} makes directories 
-	(\texttt{mkdir p}: with parents as needed, no error if existing).
-\end{enumx}
+	\item [\cmdcore] \textbf{mkdir} makes directories 
+	(\texttt{--p}: with parents as needed, no error if existing).
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmdblack] \textbf{df} reports file system disk space usage:
+\begin{compactenum}
+	\item [\cmdcore] \textbf{df} reports file system disk space usage:
 	\item [\texttt{h}] prints size in powers of 1024,
 	\item [\texttt{i}] list inode information instead of block usage,
 	\item [\texttt{t}] limits listing to file systems of given type,
 	\item [\texttt{x}] limits listing to file systems not of given type,
 	\item [\texttt{T}] prints file systems types.
-	
-	\item [\cmdblack] \textbf{du} estimates file space usage:
+\end{compactenum}
+
+\vfill\null\columnbreak
+
+\begin{compactenum}
+	\item [\cmdcore] \textbf{du} estimates file space usage:
 	\item [\texttt{a}] writes counts for all files, not just directories,
 	\item [\texttt{c}] produces a grand total,
 	\item [\texttt{d}] the depth at which summing should occur,
 	\item [\texttt{h}] prints sizes in human readable format,
 	\item [\texttt{s}] diplays only a total,
 	\item [\texttt{X}] excludes files that match pattern.
-\end{enumx}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmd] \textbf{file} determines file type.
-\end{enumx}
+\begin{compactenum}
+	\item [\cmdvar] \textbf{file} determines file type.
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmd] \textbf{find} searches for files in a directory hierarchy.
+\begin{compactenum}
+	\item [\cmdvar] \textbf{find} searches for files in a directory hierarchy.
 	\item Tests:
-	\begin{itemx}
-	\item \texttt{-name} \hfill base of file name,
-	\item \texttt{-iname} \hfill case insensitive name,
-	\item \texttt{-group}, \texttt{-user} \hfill ownership
-	\item \texttt{-perm 755}, \texttt{-perm /u=x} \hfill permissions
-	\item \texttt{-size +5M -1G} \hfill size between 5MB and 1GB
-	\item \texttt{-amin -60} \hfill accessed in last hour
-	\item \texttt{-cmin}, \texttt{-mmin}: \hfill created, modified,
-	\item \texttt{-mtime +7} \hfill modified over a week ago
-	\item \texttt{-type d} \hfill directories only,
-	\item \texttt{-type f} \hfill files only,
-	\item \texttt{-empty} \hfill empty files or directories only,
-	\end{itemx}
+	\item [] \texttt{-name} \hfill base of file name,
+	\item [] \texttt{-iname} \hfill case insensitive name,
+	\item [] \texttt{-group}, \texttt{-user} \hfill ownership
+	\item [] \texttt{-perm 755}, \texttt{-perm /u=x} \hfill permissions
+	\item [] \texttt{-size +5M -1G} \hfill size between 5MB and 1GB
+	\item [] \texttt{-amin -60} \hfill accessed in last hour
+	\item [] \texttt{-cmin}, \texttt{-mmin}: \hfill created, modified,
+	\item [] \texttt{-mtime +7} \hfill modified over a week ago
+	\item [] \texttt{-type d} \hfill directories only,
+	\item [] \texttt{-type f} \hfill files only,
+	\item [] \texttt{-empty} \hfill empty files or directories only,
 	\item Example (deletes files larger than 5 megabytes): 
-	\begin{itemx}
-	\item \texttt{find . -size +5M -exec rm -f \{\} \textbackslash{};}
-	\end{itemx}
-\end{enumx}
+	\item [] \texttt{find / -size +5M -exec rm -f \{\} \textbackslash{};}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmd] \textbf{fsck} checks and repairs a Linux filesystem:
+\begin{compactenum}
+	\item [\cmdutil] \textbf{fsck} checks and repairs a Linux filesystem:
 	\item [\texttt{a}] automatically repairs (without any question!),
 	\item [\texttt{t}] specifies the type(s) of filesystem to be checked,
 	\item [\texttt{A}] tries to check all filesystems in one run,
 	\item [\texttt{M}] skips mounted filesystems,
 	\item [\texttt{R}] skips the root filesystem.
-\end{enumx}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmdblack] \textbf{ln} makes hard links between files
-	(not directories; only in the same file system):
+\begin{compactenum}
+	\item [\cmdcore] \textbf{ln} makes hard links between files
+	(only in the same file system, not between directories):
 	\item [\texttt{s}]  makes symbolic links instead.
-\end{enumx}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmdblack] \textbf{ls} lists directory contents:
+\begin{compactenum}
+	\item [\cmdcore] \textbf{ls} lists directory contents:
 	\item [\texttt{a}] does not ignore entries starting with dot, 
 	\item [\texttt{F}] appends indicator to entries, 
 	\item [\texttt{h}] prints human readable sizes, 
@@ -162,19 +161,23 @@
 	\item [\texttt{R}] lists subdirectories recursively, 
 	\item [\texttt{S}] sorts by file size (largest first), 
 	\item [\texttt{t}] sorts by modification time (newest first), 
-	\item [\cmd] \textbf{tree} lists tree-like contents of directories.
-\end{enumx}
+	\item [\cmdvar] \textbf{tree} lists tree-like contents of directories.
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmd] \textbf{mount} mounts a filesystem.
-\end{enumx}
+\begin{compactenum}
+	\item [\cmdvar] \textbf{mount} mounts a filesystem.
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmdblack] \textbf{pwd} prints name of current directory.
-\end{enumx}
+\begin{compactenum}
+	\item [\cmdcore] \textbf{pwd} prints name of current directory.
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmd] \textbf{tar} stores and extracts files from a disk archive:
+\begin{compactenum}
+	\item [\cmdcore] \textbf{pv} monitors progress of data through a pipe.
+\end{compactenum}
+
+\begin{compactenum}
+	\item [\cmdvar] \textbf{tar} stores and extracts files from a disk archive:
 	\item [\texttt{c}] creates a new archive,
 	\item [\texttt{x}] extracts files,
 	\item [\texttt{t}] lists the contents of an archive,
@@ -183,19 +186,14 @@
 	\item [\texttt{z}] uses zip/gzip (gz compression),
 	\item [\texttt{f}] uses archive file or device (???),
 	\item [\texttt{k}] does not replace existing files when extracting.
-\end{enumx}
+\end{compactenum}
 
-
-\begin{enumx}
-	\item [\cmdblack] \textbf{pv} monitors the progress of data through a pipe.
-\end{enumx}
-
-\begin{enumx}
-	\item [\cmdblack] \textbf{tee} duplicates pipe content: % (named after the T-splitter used in plumbing) 
+\begin{compactenum}
+	\item [\cmdcore] \textbf{tee} duplicates pipe content: % (named after the T-splitter used in plumbing) 
 	\item [\texttt{a}] appends to the given files, does not overwrite,
 	\item [\texttt{i}] ignores interrupts.
-\end{enumx}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmd] Missing: \textbf{cmp}, \textbf{fuser}, \textbf{pax}, \textbf{type}.
-\end{enumx}
+%\begin{compactenum}
+	%\item [\cmdvar] Missing: \textbf{cmp}, \textbf{fuser}, \textbf{pax}, \textbf{type}.
+%\end{compactenum}

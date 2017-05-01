@@ -1,47 +1,46 @@
 \section{Programming in Bash}
 \subsection{Shebang}
-The shebang (\texttt{\#!}) at the head of a script indicates an 
+The shebang (\texttt{\#!}) at the head of a script indicates an
 interpreter for execution, as in \texttt{\#!/bin/bash}.
-Lines starting with a \texttt{\#} (with the exception of shebang) 
+Lines starting with a \texttt{\#} (with the exception of shebang)
 are comments and thus won't be executed.
 
 \subsection{Quoting and literals}
 \textbf{Single quotes} \texttt{''} preserve the literal value of characters enclosed within them.
 A single quote may not appear between single quotes, even when escaped, but may appear between \textbf{double quotes} \texttt{""}.
+
 They work similarly, with an exception that the shell expands any variables that appear within them.
 
 \subsection{Variables}
 \textbf{Variable} names are case sensitive.
 They can contain digits and underscores as well,
 but a name starting with a digit is not allowed.
-Example: 
+Example:
 \begin{minted}{bash}
 var="kind"
 echo ${var}ness # kindness
 \end{minted}
 
 Special variables:
-\begin{enumx}
-    \item \texttt{\$0}: name of the script itself. \texttt{\$1}, \texttt{\$2}, \texttt{\$3}, \ldots: the first, second, etc. argument. \texttt{shift} removes first argument and advances rest of them forward.
+\begin{compactenum}
+    \item \texttt{\$0}: name of the script itself.
+    \item \texttt{\$1}, \texttt{\$2}, \texttt{\$3}, \ldots: the first, second, etc. argument. \texttt{shift} removes first argument and advances rest of them forward.
     \item \texttt{\$*} and \texttt{\$@} denote all the positional parameters.
     \item \texttt{\$\#}: the number of positional parameters
-    \item \texttt{\$?}: most recently executed command exit status.
+    \item \texttt{\$?}: exit status of last executed command.
     \item \texttt{\$\$}: the process ID of the shell.
-    \item \texttt{\$!}: the process ID of the most recently executed command.
-\end{enumx}
+    \item \texttt{\$!}: the process ID of last executed command.
+\end{compactenum}
 
- It reads a line of input from standard input or a file passed as an argument to its -u flag, and assigns it to a variable. In Linux based shells, like Bash, it is present as a shell built in function, and not as a separate executable file.[1]
-
-To read a line of input:
-\begin{enumx}
-\item [\cmd] \textbf{read} reads a line from the stdin and splits it into fields:
-\item [\texttt{n}] returns after reading $n$ characters, 
-\item [\texttt{n}] displays a prompt 
-\end{enumx}
+To read a line of input, use \texttt{read} shell built-in.
+\begin{compactenum}
+\item [\cmdvar] \textbf{read} reads a line from the stdin: % and splits it into fields:
+\item [\texttt{n}] returns after reading $n$ characters,
+\item [\texttt{n}] displays a prompt.
+\end{compactenum}
 
 \subsection{Expansions}
-There is a tilde expansion as well.
-The expressions \texttt{$\sim$} and \texttt{$\sim$<user>} expand to the home directory of the current (or given) user. 
+''After the command has been split into tokens, these tokens or words are expanded or resolved. There are eight kinds of expansion performed, which we will discuss in the next sections, in the order that they are expanded.''
 
 \subsubsection{Brace expansion}
 Brace expansion is used when we need to generate all possible string combinations.
@@ -63,6 +62,12 @@ and (maybe zero paded or with an increment rate) integers, assuming the Bash ver
 echo {01..10..1}.~
 01. 02. 03. 04. 05. 06. 07. 08. 09. 10.
 \end{minted}
+
+There is a tilde expansion as well.
+The expressions \texttt{$\sim$} and \texttt{$\sim$<user>} expand to the home directory of the current (or given) user.
+
+\vfill\null
+\columnbreak
 
 \subsubsection{Parameter expansion}
 \begin{enumerate}
@@ -101,6 +106,10 @@ Negative values separated with extra space are accepted.
 \subsubsection{Command substitution}
 To execute commands in a subshell and then pass their standard output, use \mintinline{bash}{$( commands )}.
 
+\subsubsection{Arithmetic expansion}
+The arithmetic expression \mintinline{bash}{$(( ... ))} is evaluated and expands to the result.
+Bash guarantees that the output will be a one-word integer.
+
 \subsubsection{Process substitution}
 This kind of substitution (where input or output of a command appears as a temporary file) is performed simultaneously with the following: arithmetic and parameter expansions, command substitution.
 \begin{minted}{bash}
@@ -108,31 +117,31 @@ This kind of substitution (where input or output of a command appears as a tempo
 >( ... )
 \end{minted}
 
-\subsubsection{Arithmetic expansion}
-The arithmetic expression \mintinline{bash}{$(( ... ))} is evaluated and expands to the result.
-Bash guarantees that the output will be a one-word integer.
 
 \subsection{Streams}
 There are always three default files open:
-\begin{enumx}
+\begin{compactenum}
 \item \emph{stdin} (the keyboard, file descriptor 0),
 \item \emph{stdout} (the screen, file descriptor 1) and
 \item \emph{stderr} (error messages output, file descriptor 2).
-\end{enumx}
+\end{compactenum}
 
 These \textbf{streams} can be \textbf{redirected}:
-\begin{itemx} 
+\begin{compactenum}
 \item \texttt{cmd > file} redirects to a file (overwrites),
 \item \texttt{cmd >{}> file} appends instead,
-\item \texttt{m>n} (or \texttt{m>\&n}) redirects a file descriptor to a file 
-(or another file descriptor), 
-\item \texttt{\&>file} redirects both stdout and stderr to a file;
-\item \texttt{:> file} truncates file to zero length and
+\item \texttt{m>n} (or \texttt{m>\&n}) redirects a file descriptor to a file
+(or another file descriptor),
+\item \texttt{\&>file} redirects stdout and stderr to a file,
+\item \texttt{:> file} truncates file to zero length,
 \item \texttt{|} (pipe) serves as a command chaining tool.
-\end{itemx}
+\end{compactenum}
+
+\vfill\null
+\columnbreak
 
 \subsection{Control flow statements}
-The one-line constructs \texttt{\&\&} and \texttt{||} work like logical and $\wedge$ and logical or $\vee$.
+The one-line constructs \texttt{\&\&} and \texttt{||} work not like and, or ($\wedge$, $\vee$), but the \emph{if -- then -- else} statement.
 
 \subsubsection{Conditionals}
 Here at least one statement must be specified inside every block,
@@ -148,62 +157,63 @@ else
   other_commands	
 fi
 
-select word in "foo" "bar" "baz"
+select word in "Bash" "Haskell" "Python"
 do
-  echo "Your word is $word".
+  echo "Your language is $word".
 done
 \end{minted}
 
 There is also a case instruction:
 \begin{minted}{bash}
-case $fruit in
-  banana)
-    echo "Bananas are awry."
-    ;;
-  orange|apple)
-    echo "Ugh..."
+case $language in
+  bash)
+    echo "Bourne Again Shell!"
+  ;;
+  python|haskell)
+    echo "Python or Haskell!"
     exit 1
-    ;;
+  ;;
   *)
-    echo "Unknown fruit!"
+    echo "Unknown language!"
+  ;; # optional
 esac
 \end{minted}
 
-
-
 \subsubsection{Testing conditions}
 Remember that \texttt{test} command follows symbolic links (except for the \texttt{-h} test).
-\begin{itemx} 
+\begin{compactenum}
 \item \textbf{File tests}:
-\begin{enumx}
-    \item \texttt{-e} file exists, 
-    \texttt{-s} file is nonempty. 
-    \item \texttt{-d} directory, 
-    \texttt{-f} regular file, 
-    \texttt{-h} symbolic link. 
-    \item \texttt{-b} block device, 
-    \texttt{-c} character device, 
-    \texttt{-p} named pipe, 
+\begin{compactenum}
+    \item \texttt{-e} file exists,
+    \texttt{-s} file is nonempty,
+    \item \texttt{-d} directory,
+    \texttt{-f} regular file,
+    \texttt{-h} symlink,
+    \item \texttt{-b} block device,
+    \texttt{-c} character device,
+    \item \texttt{-p} named pipe,
     \texttt{-S} socket.
-\end{enumx}
+\end{compactenum}
 \item \textbf{File permissions}:
-\begin{enumx}
+\begin{compactenum}
     \item \texttt{-r} readable,
     \texttt{-w} writable,
     \texttt{-x} executable,
     \item \texttt{-u} setuid,
     \texttt{-g} setgid,
     \texttt{-k} sticky bit.
-\end{enumx}
+\end{compactenum}
 \item \textbf{String tests}: \texttt{-z} empty, \texttt{-n} nonempty.
-\item \textbf{Arithmetic tests}: 
-\texttt{-eq} $=$, 
-\texttt{-ne} $\neq$, 
-\texttt{-lt} $<$, 
-\texttt{-gt} $>$, 
-\texttt{-le} $\le$, 
-\texttt{-ge} $\ge$.
-\end{itemx}
+\item \textbf{Arithmetic tests}:
+\begin{compactenum}
+  \item \texttt{-eq} $=$,
+  \texttt{-ne} $\neq$,
+  \item \texttt{-lt} $<$,
+  \texttt{-gt} $>$,
+  \item \texttt{-le} $\le$,
+  \texttt{-ge} $\ge$.
+\end{compactenum}
+\end{compactenum}
 
 \subsubsection{Loops}
 \begin{minted}{bash}
@@ -221,12 +231,15 @@ done < some_file
 \end{minted}
 
 As Bash Guide for Beginners by M. Garrels says:
-\begin{enumx}
-\item the \texttt{break} statement is used to 
-exit the current loop before its normal ending. 
-\item the \texttt{continue} statement resumes iteration 
+\begin{compactenum}
+\item the \texttt{break} statement is used to
+exit the current loop before its normal ending.
+\item the \texttt{continue} statement resumes iteration
 of an enclosing while, until, select or for loop.
-\end{enumx}
+\end{compactenum}
+
+\vfill\null
+\columnbreak
 
 
 % special files: /dev/null, /dev/zero, /proc/...

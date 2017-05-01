@@ -1,30 +1,17 @@
 \renewcommand\theFancyVerbLine{\normalsize\arabic{FancyVerbLine}}
 
-\begin{enumx}
-	\item [\cmd] \textbf{awk} is a pattern scanning / processing language.
-\item [\cmd] \textbf{grep} prints lines matching a pattern:
-\item [\texttt{c}] prints a count of matching lines instead,
-\item [\texttt{e}] uses a ``regexp'' pattern,
-\item [\texttt{f}] obtains patterns from a file,
-\item [\texttt{i}] ignores case disctinctions,
-\item [\texttt{v}] inverts the sense of matching,
-\item [\texttt{w}] selects only lines containing matches that form whole words,
-\item [\texttt{n}] prints line numbers as well,
-\item [\texttt{A}] prints ``num'' lines of trailing content,
-\item [\texttt{B}] prints ``num'' lines of leading content,
-\item [\texttt{C}] prints ``num'' lines of both contents,
-\item [\texttt{R}] reads all files under each directory.
-\item [\cmd] \textbf{sed}: a stream editor filtering/transforming text.
-\end{enumx}
+\begin{compactenum}
+\item [\cmdvar] \textbf{awk}, \textbf{grep} and \textbf{sed} have been described earlier.
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmdblack] \textbf{comm} compares two sorted files line by line.
-	\item [\cmdblack] \textbf{shuf} generates random permutations:
+\begin{compactenum}
+	\item [\cmdcore] \textbf{comm} compares two sorted files line by line.
+	\item [\cmdcore] \textbf{shuf} generates random permutations:
 	\item [\texttt{e}] treats each ``arg'' as an input line,
 	\item [\texttt{i}] treats each number .. through .. as an input line, 
 	\item [\texttt{n}] outputs at most ``count'' lines,
 	\item [\texttt{r}] output lines can be repeated (with \texttt{-n}).
-	\item [\cmdblack] \textbf{sort} sorts lines of text files:
+	\item [\cmdcore] \textbf{sort} sorts lines of text files:
 	\item [\texttt{c}] checks for sorted input,
 	\item [\texttt{f}] folds lower case to upper case characters,
 	\item [\texttt{g}] compares general numerical values,
@@ -33,85 +20,85 @@
 	\item [\texttt{n}] compares string numerical values,
 	\item [\texttt{r}] reverses the results,
 	\item [\texttt{s}] stabilizes the sort.
-	\item [\cmdblack] \textbf{tsort} performs topological sort.
-	\item [\cmdblack] \textbf{uniq} omits repeated lines:
+	\item [\cmdcore] \textbf{tsort} performs topological sort.
+	\item [\cmdcore] \textbf{uniq} omits repeated lines:
 	\item [\texttt{c}] prefixes lines by the number of occurences,
 	\item [\texttt{d}] only prints duplicate lines, one for each group,
 	\item [\texttt{f}] avoids comparing first fields,
 	\item [\texttt{i}] ignores differences in case,
 	\item [\texttt{s}] avoids comparing first characters,
 	\item [\texttt{w}] compares no more than $n$ characters.
-\end{enumx}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmdblack] \textbf{cut} prints selected parts of lines:
+\begin{compactenum}
+	\item [\cmdcore] \textbf{cut} prints selected parts of lines:
 	\item [] \texttt{-}\texttt{-}\texttt{complement} complements the selection,
 	\item [\texttt{c}] selects only these characters,
 	\item [\texttt{d}] uses ``delim'' instead of Tab for field delimeter,
 	\item [\texttt{f}] selects only these fields,
 	\item [\texttt{s}] does not print lines not containing delimeters.
-	\item [\cmdblack] \textbf{join} joins lines of two files on a common field.
-	\item [\cmdblack] \textbf{paste} merges lines of files.
+	\item [\cmdcore] \textbf{join} joins lines of two files on a common field.
+	\item [\cmdcore] \textbf{paste} merges lines of files.
 	\item [\texttt{d}] reuses characters from ``list'' instead of tabs,
 	\item [\texttt{s}] pastes one file at a time, not in parallel.
-	\item [\cmdblack] \textbf{tr} translates or deletes characters:
+	\item [\cmdcore] \textbf{tr} translates or deletes characters:
 	% \item \texttt{tr abc xyz} changes \texttt{a} to \texttt{x}, $\ldots$,
 	\item [c] uses the complement of ``set1'',
 	\item [d] deletes characters, does not translate,
 	\item [s] replaces each sequence of a repeated character that is listed 
 	in the last specified ``set'' with a single occurrence of that character.
-\end{enumx}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmd] \textbf{diff} compares files line by line:
+\begin{compactenum}
+	\item [\cmdvar] \textbf{diff} compares files line by line:
 	\item [\texttt{y}] outputs in two columns,
 	\item [\texttt{i}] ignores case differences,
 	\item [\texttt{w}] ignores all white space.
 	% E Z b B
-\end{enumx}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmd] \textbf{fmt} is a simple optimal text formatter, 
-	\item [\cmd] \textbf{fold} wraps each line to fit in specified width.
-\end{enumx}
+\begin{compactenum}
+	\item [\cmdvar] \textbf{fmt} is a simple optimal text formatter, 
+	\item [\cmdvar] \textbf{fold} wraps each line to fit in specified width.
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmdblack] \textbf{head} outputs the first (last) part of files:
+\begin{compactenum}
+	\item [\cmdcore] \textbf{head} outputs the first (last) part of files:
 	\item [\texttt{c}] the first ``num'' bytes,
 	\item [\texttt{n}] the first ``num'' lines,
-	\item [\cmdblack] \textbf{tail} the last ``num'' bytes:
+	\item [\cmdcore] \textbf{tail} the last ``num'' bytes:
 	\item [\texttt{c}] the last ``num'' bytes,
 	\item [\texttt{n}] the last ``num'' lines,
 	\item [\texttt{f}] outputs appended data as the file grows,
 	\item [\texttt{s}] sleeps for ``n'' seconds between iterations. 
-	\item [\cmdblack] \textbf{split} splits a file into pieces:
+	\item [\cmdcore] \textbf{split} splits a file into pieces:
 	\item [\texttt{a}] generates suffixes of length ``n'' (default 2),
 	\item [\texttt{b}] puts ``size'' bytes per output file,
 	\item [\texttt{d}] uses numeric (not alphabetic) suffixes,
 	\item [\texttt{l}] puts ``number'' lines/records per output file,
 	\item [\texttt{n}] generates ``chunks'' output files.
-	\item [\cmdblack] See also: \textbf{csplit}.
-\end{enumx}
+	\item [\cmdcore] See also: \textbf{csplit}.
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmd] \textbf{more} pages text too large to fit on one screen and 
+\begin{compactenum}
+	\item [\cmdvar] \textbf{more} pages text too large to fit on one screen and 
 	allows scrolling down, but not up and therefore is deprecated.
-	\item [\cmd] \textbf{less} is an enhanced version of more:
+	\item [\cmdvar] \textbf{less} is an enhanced version of more:
 	\item [\texttt{+F}] monitors the tail of a file which is growing.
-\end{enumx}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmd] \textbf{vim} is an advanced text editor, 
+\begin{compactenum}
+	\item [\cmdvar] \textbf{vim} is an advanced text editor, 
 	too complex to be explained here.
 	See also \textbf{emacs}.
-\end{enumx}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmd] \textbf{xargs} builds and executes command lines:
+\begin{compactenum}
+	\item [\cmdvar] \textbf{xargs} builds and executes command lines:
 	\item [\texttt{0}] takes care of filenames with spaces, backslashes.
 	\item [\texttt{I}] replaces occurrences of ``string'' with names read from standard input.
-\end{enumx}
+\end{compactenum}
 
-\begin{enumx}
-	\item [\cmd] \textbf{yes} outputs a string repeatedly until killed.
-\end{enumx}
+\begin{compactenum}
+	\item [\cmdvar] \textbf{yes} outputs a string repeatedly until killed.
+\end{compactenum}
