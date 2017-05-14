@@ -1,5 +1,6 @@
 \begin{compactenum}
 \item [\cmdvar] \textbf{curl} transfers a URL.
+\item [\cmdvar] \textbf{ftp} is a File Transfer Protocol client.
 \item [\cmdvar] \textbf{wget} is a non-interactive network downloader.
 \item [\texttt{A}, \texttt{R}] specifies lists 	of file suffixes or 
 	patterns (when wildcard characters appear) to accept or reject,
@@ -15,9 +16,11 @@
 \end{compactenum}
 
 \begin{compactenum}
-\item [\cmdvar] \textbf{rlogin} starts a terminal session on a remote host.
-\item [\cmdvar] \textbf{ssh} is an OpenSSH SSH client (remote login program).
-\item [\texttt{D}] specifies a local ''dynamic'' application-level port forwarding,
+\item [\cmdvar] \textbf{rlogin} starts a terminal session (which is not encrypted!) on a remote host.
+\item [\cmdvar] \textbf{ssh} connects \& logs into a (remote) hostname:
+\item [\texttt{C}] requests compression of all data,
+%\item [\texttt{D}] specifies a local ''dynamic'' application-level port forwarding,
+\item [\texttt{i}] uses private key for authentication,
 \item [\texttt{p}] selects a port to connect to on the remote host,
 \item [\texttt{X}] enables X11 forwarding.
 \end{compactenum}
@@ -30,17 +33,29 @@
 \end{compactenum}
 
 \begin{compactenum}
+\item [\cmdvar] \textbf{arp} manipulates the system ARP cache.
 \item [\cmdvar] \textbf{ifconfig} configures a network interface.   
-\item [\cmdvar] \textbf{inetd} is a super-server daemon that provides Internet services.
-\item [\cmdvar] \textbf{netcat}: arbitrary TCP and UDP connections and listens.
-\item [\cmdvar] \textbf{netstat} prints network connections, routing tables, 
-interface statistics, masquerade connections, and multicast memberships.
+\item [\cmdvar] \textbf{netstat} prints networking subsystem related info: network connections, interface statistics, routing tables, and so on.
+\item [\texttt{a}] whether sockets is listening or not,
+\item [\texttt{t}] only TCP connections.
 \item [\cmdvar] \textbf{ping} tests the reachability of a host 
 on an IP network by sending ICMP ECHO\_REQUEST:
 \item [\texttt{c}] stops after sending ``count'' packets,
-\item [\texttt{n}] numeric output only, 
-	avoids to lookup symbolic names for host addresses. 
-\item [\cmdvar] \textbf{rdate} sets the system's date from a remote host.
+\item [\texttt{n}] numeric output only, avoids symbolic names for host addresses lookup. 
+%%% h
+\item [\cmdvar] \textbf{route} shows and manipulates the IP routing table.
+\item [\cmdvar] \textbf{traceroute} prints a trace of the route that IP packets are travelling to a remote host:
+\item [\texttt{I}] uses ICMP ECHO for probes.
+\end{compactenum}
+
+%\item [\cmdvar] \textbf{inetd} is a super-server daemon that provides Internet services.
+%\item [\cmdvar] \textbf{netcat}: arbitrary TCP and UDP connections and listens.
+%\item [\cmdvar] \textbf{rdate} sets the system's date from a remote host.
+
+%\item [\texttt{}] \texttt{----delete} deletes extraneous files from dest dirs.
+
+
+\begin{compactenum}
 \item [\cmdvar] \textbf{rsync} copies files fast (remote or local):
 \item [\texttt{a}] in archive mode, equivalent to:
 \item [\texttt{g}] preserves group,
@@ -51,12 +66,9 @@ on an IP network by sending ICMP ECHO\_REQUEST:
 \item [\texttt{b}] make backups, 
 \item [\texttt{c}] skip based on checksum, 
 \item [\texttt{n}] performs a dry run without changes made, 
-\item [\texttt{r}] resursively, 
+\item [\texttt{r}] resursively,  %%%
 \item [\texttt{u}] skip newer files on the receiver, 
-\item [\texttt{v}] increases verbosity, 
-\item [\texttt{z}] compresses file data during the transfer,
-\item [\texttt{}] \texttt{----delete} deletes extraneous files from dest dirs.
-\item [\cmdvar] \textbf{route} shows and manipulates the IP routing table.
-\item [\cmdvar] \textbf{traceroute} is a computer network diagnostic tool for 
-displaying the route (path) and measuring transit delays of 
+\item [\texttt{v}] increases verbosity, %%%
+\item [\texttt{z}] compresses file data during the transfer, %%%
+\item [\cmdvar] \textbf{scp} copies files securely.
 \end{compactenum}

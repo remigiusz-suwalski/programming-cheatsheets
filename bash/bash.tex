@@ -25,6 +25,8 @@
 \titlespacing{\subsection}{0pt}{\parskip}{0}
 \titlespacing{\subsubsection}{0pt}{\parskip}{0}
 
+% half filled square, modifies \square and \blacksquare!
+\usepackage{stix}
 % custom font
 \usepackage{Alegreya}
 % provides an extended symbol collection
@@ -41,11 +43,10 @@
 \usepackage{microtype}
 
 \newcommand{\manualbreak}{\vspace*{\fill}\columnbreak}
-
 \newcommand{\cmdcore}{$\blacksquare$}
-\newcommand{\cmdutil}{$\boxplus$}
+\newcommand{\cmdutil}{$\squarelrblack$}
 \newcommand{\cmdvar}{$\square$}
- 
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
@@ -97,9 +98,6 @@ Other popular shells are \emph{zsh} and \emph{fish}.
 
 \subsection{Networking}
 \input{src/unix_network}
-
-\subsection{Searching}
-\input{src/unix_search}
 
 \subsection{Hardware}
 \input{src/unix_hw}
