@@ -1,9 +1,9 @@
 \documentclass[a4paper, twoside, 8pt]{extarticle}
 \usepackage[
-    left=1.2cm,
-    right=1.2cm,
-    top=2.25cm,
-    bottom=1.25cm]{geometry}
+  left=1.2cm,
+  right=1.2cm,
+  top=2.25cm,
+  bottom=1.25cm]{geometry}
 \usepackage{multicol}
 
 % extensive control of page headers and footers
@@ -13,7 +13,7 @@
 {\newpage \fancyfoot[C]{} \renewcommand{\footrulewidth}{0pt}}
 \makeatother
 \pagestyle{mypagestyle}
-\headsep 5pt            
+\headsep 5pt      
 
 % highlighted source code
 \usepackage{minted} 
@@ -53,6 +53,104 @@
 \fancyfoot[LF]{}
 
 \begin{multicols*}{3}
-Haskell
+\section{Prelude}
+\subsection{List operations}
+\mintinline{haskell}{map}: applies a function to each element of a list.
+
+\mintinline{haskell}{(++)}: appends two lists.
+
+\mintinline{haskell}{filter}: list of elements that satisfy the predicate.
+
+\mintinline{haskell}{head}: first element of a list.
+
+\mintinline{haskell}{last}: last element of finite, non-empty list.
+
+\mintinline{haskell}{tail}: elements after the head of a list.
+
+\mintinline{haskell}{init}: all elements except the last one.
+
+\mintinline{haskell}{null}: tests whether a structure is empty.
+
+\mintinline{haskell}{length}: size of a finite structure.
+
+\mintinline{haskell}{(!!)}: list index (subscript) operator.
+
+\mintinline{haskell}{reverse}: elements of a finite list in reverse order.
+
+\subsubsection{Special folds}
+\mintinline{haskell}{and}: the conjunction ($\wedge$) of a container of Bools.
+
+\mintinline{haskell}{or}: the disjunction ($\vee$) of a container of Bools.
+
+\mintinline{haskell}{any}: does any element satisfies the predicate?
+
+\mintinline{haskell}{all}: do all elements satisfy the predicate?
+
+\mintinline{haskell}{concat}: concatenates elements of a container of lists.
+
+\mintinline{haskell}{concatMap}: maps a function over all the elements of a container and concatenate the resulting lists.
+
+\subsubsection{Building lists with scans}
+\mintinline{haskell}{scanl}: list of successive reduced values from the left, similar to \mintinline{haskell}{foldl}: $[z, z * x_1, (z * x_1) * x_2, \ldots]$.
+
+\mintinline{haskell}{scanl1}: variant of \mintinline{haskell}{scanl} with no starting value.
+
+\mintinline{haskell}{scanr}: right-to-left dual of \mintinline{haskell}{scanl}
+
+\mintinline{haskell}{scanr1}: variant of \mintinline{haskell}{scanr} with no starting value.
+
+\subsubsection{Building infinite lists}
+\mintinline{haskell}{íterate}: $\infty$ list of repeated function applications.
+
+\mintinline{haskell}{repeat}: $\infty$ list from a single element.
+
+\mintinline{haskell}{replicate}: finite list from a single element.
+
+\mintinline{haskell}{cycle}: ties a finite list into a circular one.
+
+\subsubsection{Sublists}
+\mintinline{haskell}{take}: prefix of fixed length.
+
+\mintinline{haskell}{drop}: suffix after prefix of fixed length.
+
+\mintinline{haskell}{splitAt}: a tuple equivalent to \mintinline{haskell}{take} and \mintinline{haskell}{drop}.
+
+\mintinline{haskell}{takeWhile}: the longest prefix satisfying a predicate.
+
+\mintinline{haskell}{dropWhile}: the suffix remaining after \mintinline{haskell}{takeWhile}. 
+
+\mintinline{haskell}{span}: a tuple from \mintinline{haskell}{takeWhile} and \mintinline{haskell}{dropWhile}.
+
+\mintinline{haskell}{break}: \mintinline{haskell}{break p == span (not . p)}
+
+\subsubsection{Searching lists}
+\mintinline{haskell}{notElem}: negation of \mintinline{haskell}{elem}.
+
+\mintinline{haskell}{lookup}: looks up a key in an association list.
+
+\subsubsection{Zipping and unzipping lists}
+\mintinline{haskell}{zip}: list of corresponding pairs from two lists.
+
+\mintinline{haskell}{zip3}: analogous to \mintinline{haskell}{zip}, takes three lists.
+
+\mintinline{haskell}{zipWith}: is a  \mintinline{haskell}{zip} with custom zupping function.
+
+\mintinline{haskell}{zipWith3}: analogous to \mintinline{haskell}{zipWith}, takes three lists.
+
+\mintinline{haskell}{unzip}: transforms a list of pairs into two lists.
+
+\mintinline{haskell}{unzip3}: analogous to \mintinline{haskell}{unzip}, returns three lists.
+
+\subsubsection{Functions on strings}
+\mintinline{haskell}{lines}: breaks a string up into a list of lines.
+
+\mintinline{haskell}{words}: breaks a string up into a list of words.
+
+\mintinline{haskell}{unlines}: an operation inverse to \mintinline{haskell}{lines}.
+ 
+\mintinline{haskell}{unwords}: an operation inverse to \mintinline{haskell}{words}.
+
 \end{multicols*}
 \end{document}
+
+\mintinline{haskell}{}
