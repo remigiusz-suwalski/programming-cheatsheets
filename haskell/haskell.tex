@@ -6,7 +6,8 @@
     bottom=1.25cm]{geometry}
 \usepackage{multicol}
 
-\usepackage{fancyhdr} % extensive control of page headers and footers
+% extensive control of page headers and footers
+\usepackage{fancyhdr} 
 \makeatletter
 \fancypagestyle{mypagestyle}
 {\newpage \fancyfoot[C]{} \renewcommand{\footrulewidth}{0pt}}
@@ -14,51 +15,42 @@
 \pagestyle{mypagestyle}
 \headsep 5pt            
 
-\usepackage{minted} % highlighted source code
-\usepackage[usenames,dvipsnames]{color} % colour control
-\usepackage{xcolor} % driver-independent color extensions
-\usepackage{amssymb} % provides an extended symbol collection
+% highlighted source code
+\usepackage{minted} 
+\usemintedstyle{pastie}
 
-\usepackage{enumitem} % control layout of itemize, enumerate, description
-\newenvironment{enumx} {
-	\begin{enumerate}[leftmargin=*]
-	\setlength{\topsep}{0pt}
-	\setlength{\itemsep}{0pt}
-	\setlength{\parskip}{0pt}
-	\setlength{\parsep}{0pt}
-	}
-{\end{enumerate}}
-\newenvironment{itemx} {
-	\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-	%\setlength{\itemsep}{0pt}
-	%\setlength{\parskip}{0pt}
-	%$\setlength{\parsep}{0pt}
-	}
-{\end{itemize}}
+% selects alternative section titles
+\usepackage[compact]{titlesec} 
+\titlespacing{\section}{0pt}{\parskip}{0}
+\titlespacing{\subsection}{0pt}{\parskip}{0}
+\titlespacing{\subsubsection}{0pt}{\parskip}{0}
 
-\usepackage{parskip} % layout with zero \parindent, non-zero \parskip
-\usepackage{titlesec} % selects alternative section titles
-\titlespacing\section{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsubsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-
-\usepackage{lastpage} % reference last page
+% custom font
 \usepackage{Alegreya}
+% provides an extended symbol collection
+\usepackage{amssymb} 
 \usepackage{hyperref}
+% reference last page
+\usepackage{lastpage}
+% layout with zero \parindent, non-zero \parskip 
+\usepackage{parskip} 
+% driver-independent color extensions
+\usepackage{xcolor} 
+% compact list environment
+\usepackage{paralist}
+\usepackage{microtype}
 
 \newcommand{\manualbreak}{\vspace*{\fill}\columnbreak}
-\newcommand{\cmdblack}{$\blacksquare$}
-\newcommand{\cmd}{$\bigstar$}
- 
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
 \begin{document}
 \renewcommand{\footrulewidth}{0.4pt}
-\fancyhead[LE,LO]{Haskell -- cheat sheet (page \thepage/\pageref{LastPage})}
-\fancyhead[RO,RE]{source: --} 
-\fancyfoot[RF]{author: Remigiusz Suwalski, date: \today}
-%\fancyfoot[LF]{}
+\fancyhead[LE,LO]{Haskell -- quick reference (page \thepage/\pageref{LastPage})}
+\fancyhead[RO,RE]{source: \url{https://git.io/v9d39}} 
+\fancyfoot[RF]{author: Remigiusz Suwalski,\\ date: \today}
+\fancyfoot[LF]{}
 
 \begin{multicols*}{3}
 Haskell
