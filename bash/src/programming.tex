@@ -111,11 +111,7 @@ The arithmetic expression \mintinline{bash}{$(( ... ))} is evaluated and expands
 Bash guarantees that the output will be a one-word integer.
 
 \subsubsection{Process substitution}
-This kind of substitution (where input or output of a command appears as a temporary file) is performed simultaneously with the following: arithmetic and parameter expansions, command substitution.
-\begin{minted}{bash}
-<( ... ) # not specified by POSIX!
->( ... )
-\end{minted}
+This kind of substitution: \mintinline{bash}{<( ... )} and \mintinline{bash}{>( ... )} (not specified by POSIX!), where input or output of a command appears as a temporary file, is performed simultaneously with the following: arithmetic and parameter expansions, command substitution.
 
 
 \subsection{Streams}
@@ -137,8 +133,16 @@ These \textbf{streams} can be \textbf{redirected}:
 \item \texttt{|} (pipe) serves as a command chaining tool.
 \end{compactenum}
 
-\vfill\null
-\columnbreak
+Here document is a section of a source code file that is treated as if it were a separate file:
+
+\begin{minted}{bash}
+cat <<EOF > /path/to/your/file
+   This line will write to the file.
+EOF
+\end{minted}
+
+%\vfill\null
+%\columnbreak
 
 \subsection{Control flow statements}
 The one-line constructs \texttt{\&\&} and \texttt{||} work not like and, or ($\wedge$, $\vee$), but the \emph{if -- then -- else} statement.
