@@ -1,0 +1,35 @@
+\section{Development tools}
+\subsection{Efficient looping (\texttt{itertools})}
+Infinite iterators:
+\begin{compactenum}
+\item \mintinline{python}{count}: evenly spaced values: $a$, $a+ r$, \ldots
+\item \mintinline{python}{cycle}: turns iterable into infinite sequence.
+\item \mintinline{python}{repeat}: repeats an object indefinitely, unless second argument (\emph{times}) is specified.
+\end{compactenum}
+
+Iterators terminating on the shortest input sequence:
+\begin{compactenum}
+\item \mintinline{python}{accumulate}: accumulates binary function (sum)
+\item \mintinline{python}{chain}: consecutive sequences as a single one.
+\item \mintinline{python}{compress}: an iterator that filters elements from \emph{data} having a corresponding element in \emph{selectors} that evaluates to True.
+\item \mintinline{python}{dropwhile}: drops elements from the iterable as long as the predicate is true.
+\item \mintinline{python}{filterfalse}: filters elements to those for which the predicate is false.
+\item \mintinline{python}{groupby}: \emph{\color{red} missing description}
+\item \mintinline{python}{islice}: \emph{\color{red} missing description}
+\item \mintinline{python}{starmap}: iterator computing a function using arguments obtained from iterable.
+\item \mintinline{python}{takewhile}: takes elements from the iterable as long as the predicate is true.
+\item \mintinline{python}{tee}: $n$ intependent iterators from one.
+\item \mintinline{python}{zip_longest}: like regular \mintinline{python}{zip}, but fills missing values instead of truncating.
+\end{compactenum}
+
+Combinatoric generators:
+\begin{compactenum}
+\item \mintinline{python}{product}: cartesian product of iterables.
+\item \mintinline{python}{permutations}: $r$-length tuples, all possible orderings, no repeated elements.
+\item \mintinline{python}{combinations}: sorted permutations.
+\item \mintinline{python}{combinations_with_replacement}: $r$-length sorted tuples, with repetitions.
+\end{compactenum}
+
+\subsection{Higher order functions (\texttt{functools})}
+
+\subsection{Operators as functions (\texttt{operator})}
