@@ -1,4 +1,4 @@
-\section{Text processing: grep, sed, awk}
+\section{Text processing (grep, sed, awk)}
 This is an expanded description of three powerful text processing tools:
 \texttt{grep}, \texttt{sed} and \texttt{awk}.
 
@@ -8,19 +8,26 @@ See also \texttt{ack}, an optimized for programmers tool like grep, at \url{http
 The ed command \texttt{g/re/p} was used to \textbf{g}lobally search a \textbf{r}egular \textbf{e}xpression and \textbf{p}rint.
 \begin{compactenum}
 \item [\cmdvar] \textbf{grep} prints lines matching a pattern:
+\item [\texttt{E}] interprets pattern as an extended regexp,
+\item [\texttt{F}] 
+\item [\texttt{P}] interprets pattern as a Perl regexp,
+\item []
 \item [\texttt{c}] prints a count of matching lines instead,
+\item [\texttt{m}] 
+\item [\texttt{o}] 
+\item [\texttt{n}] prints line numbers as well,
+\item [\texttt{r}] reads all files under each directory.
+\item []
 \item [\texttt{e}] uses a ``regexp'' pattern,
 \item [\texttt{f}] obtains patterns from a file,
 \item [\texttt{i}] ignores case disctinctions,
 \item [\texttt{v}] inverts the sense of matching,
 \item [\texttt{w}] selects only lines with whole words matches,
-\item [\texttt{n}] prints line numbers as well,
+\item [\texttt{x}] 
+\item []
 \item [\texttt{A}] prints ``num'' lines of trailing content,
 \item [\texttt{B}] prints ``num'' lines of leading content,
 \item [\texttt{C}] prints ``num'' lines of both contents,
-\item [\texttt{E}] interprets pattern as an extended regexp,
-\item [\texttt{P}] interprets pattern as a Perl regexp,
-\item [\texttt{R}] reads all files under each directory.
 \end{compactenum}
 
 \subsection{sed -- stream editor}
