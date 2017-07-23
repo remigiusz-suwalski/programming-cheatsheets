@@ -37,19 +37,3 @@
 \item \texttt{[\textasciicircum{}abcd]}: negation (not \texttt{[abcd]}).
 \end{compactenum}
 \end{compactenum}
-
-Awk regex:
-\begin{minted}{bash}
-/^(ab|c)*[0-9]+/
-\end{minted}
-
-Grep regex (with \texttt{-E} flag):
-\begin{minted}{bash}
-^(ab|c)*[[:digit:]]+
-\end{minted}
-
-Sed regex:
-\begin{minted}{bash}
-sed "s/^\(ab|c\)*[[:digit:]]+/\1\1/"
-\end{minted}
-
