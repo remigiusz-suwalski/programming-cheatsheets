@@ -76,12 +76,16 @@ Negation may be obtained with \texttt{!s}.
 General form of its code:
 \begin{minted}{bash}
 #! /bin/awk
-BEGIN {initialization}
-search pattern {actions} # for example:
-/word[0-9]/ {gold += $2} # regex
-!/word[0-9]/ {counter++} # negation
-END {final actions}
+pattern {actions} # comment
 \end{minted}
+
+Supported types of pattern are
+\begin{compactenum}
+\item \mintinline{bash}{BEGIN} for initialization,
+\item regular expressions (enclosed in single slashes),
+\item awk expressions, comparison operators (tilde: matches),
+\item \mintinline{bash}{END} for final actions.
+\end{compactenum}
 
 Awk is weakly typed: variables can be treated either as numeric values or strings, which are not represented as one-dimensional arrays of characters!
 Important variables include:
@@ -90,7 +94,9 @@ Important variables include:
 \item \textbf{OFS}: output field separator,
 \item \textbf{RS}: record separator (new line),
 \item \textbf{NR}: number of the current record,
-\item \textbf{NF}: number of fields in the current record. 
+\item \textbf{NF}: number of fields in the current record,
+\item \mintinline{bash}{$0}: the entire input record,
+\item \mintinline{bash}{$1, $2, $3, ...}: fields in the current record.
 \end{compactenum}
 
 Numerical functions: \texttt{int}, \texttt{sqrt}, \texttt{exp}, \texttt{log}, \texttt{sin}, \texttt{cos}, \texttt{atan2}, \texttt{rand} (pseudo random from $[0, 1)$), \texttt{srand} (without parameters, uses time of day as a seed).
