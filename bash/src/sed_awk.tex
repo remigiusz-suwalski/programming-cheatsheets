@@ -9,12 +9,12 @@ The ed command \texttt{g/re/p} was used to \textbf{g}lobally search a \textbf{r}
 \begin{compactenum}
 \item [\cmdvar] \textbf{grep} prints lines matching a pattern:
 \item [\texttt{E}] interprets pattern as an extended regexp,
-\item [\texttt{F}] 
+\item [\texttt{F}] does not recognize regexps,
 \item [\texttt{P}] interprets pattern as a Perl regexp,
 \item []
 \item [\texttt{c}] prints a count of matching lines instead,
-\item [\texttt{m}] 
-\item [\texttt{o}] 
+\item [\texttt{m}] exits after finding \ldots{} matches,
+\item [\texttt{o}] prints only matched parts of lines,
 \item [\texttt{n}] prints line numbers as well,
 \item [\texttt{r}] reads all files under each directory.
 \item []
@@ -23,11 +23,11 @@ The ed command \texttt{g/re/p} was used to \textbf{g}lobally search a \textbf{r}
 \item [\texttt{i}] ignores case disctinctions,
 \item [\texttt{v}] inverts the sense of matching,
 \item [\texttt{w}] selects only lines with whole words matches,
-\item [\texttt{x}] 
+\item [\texttt{x}] selects matches exactly matching whole line.
 \item []
-\item [\texttt{A}] prints ``num'' lines of trailing content,
-\item [\texttt{B}] prints ``num'' lines of leading content,
-\item [\texttt{C}] prints ``num'' lines of both contents,
+\item [\texttt{A}] prints \ldots{} lines of trailing content,
+\item [\texttt{B}] prints \ldots{} lines of leading content,
+\item [\texttt{C}] prints \ldots{} lines of both contents.
 \end{compactenum}
 
 \subsection{sed -- stream editor}
