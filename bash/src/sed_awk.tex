@@ -1,4 +1,4 @@
-\section{Text processing: grep, sed, awk}
+\section{Text processing (grep, sed, awk)}
 This is an expanded description of three powerful text processing tools:
 \texttt{grep}, \texttt{sed} and \texttt{awk}.
 
@@ -8,19 +8,26 @@ See also \texttt{ack}, an optimized for programmers tool like grep, at \url{http
 The ed command \texttt{g/re/p} was used to \textbf{g}lobally search a \textbf{r}egular \textbf{e}xpression and \textbf{p}rint.
 \begin{compactenum}
 \item [\cmdvar] \textbf{grep} prints lines matching a pattern:
+\item [\texttt{E}] interprets pattern as an extended regexp,
+\item [\texttt{F}] does not recognize regexps,
+\item [\texttt{P}] interprets pattern as a Perl regexp,
+\item []
 \item [\texttt{c}] prints a count of matching lines instead,
+\item [\texttt{m}] exits after finding \ldots{} matches,
+\item [\texttt{o}] prints only matched parts of lines,
+\item [\texttt{n}] prints line numbers as well,
+\item [\texttt{r}] reads all files under each directory.
+\item []
 \item [\texttt{e}] uses a ``regexp'' pattern,
 \item [\texttt{f}] obtains patterns from a file,
 \item [\texttt{i}] ignores case disctinctions,
 \item [\texttt{v}] inverts the sense of matching,
 \item [\texttt{w}] selects only lines with whole words matches,
-\item [\texttt{n}] prints line numbers as well,
-\item [\texttt{A}] prints ``num'' lines of trailing content,
-\item [\texttt{B}] prints ``num'' lines of leading content,
-\item [\texttt{C}] prints ``num'' lines of both contents,
-\item [\texttt{E}] interprets pattern as an extended regexp,
-\item [\texttt{P}] interprets pattern as a Perl regexp,
-\item [\texttt{R}] reads all files under each directory.
+\item [\texttt{x}] selects matches exactly matching whole line.
+\item []
+\item [\texttt{A}] prints \ldots{} lines of trailing content,
+\item [\texttt{B}] prints \ldots{} lines of leading content,
+\item [\texttt{C}] prints \ldots{} lines of both contents.
 \end{compactenum}
 
 \subsection{sed -- stream editor}
@@ -64,17 +71,21 @@ Negation may be obtained with \texttt{!s}.
 \subsection{awk -- Aho, Weinberger, Kernighan}
 \begin{compactenum}
 \item [\cmdvar] \textbf{awk} is a language used as a data extraction and reporting tool.
+General form of its code:
 \end{compactenum}
 
-General form of its code:
 \begin{minted}{bash}
 #! /bin/awk
-BEGIN {initialization}
-search pattern {actions} # for example:
-/word[0-9]/ {gold += $2} # regex
-!/word[0-9]/ {counter++} # negation
-END {final actions}
+pattern {actions} # comment
 \end{minted}
+
+Supported types of pattern are
+\begin{compactenum}
+\item \mintinline{bash}{BEGIN} for initialization,
+\item regular expressions (enclosed in \texttt{/ /}, single slashes): for example \texttt{/[a-z0-9\_-]\{3,16\}/},
+\item awk expressions, comparison operators (\texttt{<}, \texttt{>}, \texttt{<=}, \texttt{>=}, \texttt{==}, \texttt{!=}, tilde: matches, \texttt{!} negates),
+\item \mintinline{bash}{END} for final actions.
+\end{compactenum}
 
 Awk is weakly typed: variables can be treated either as numeric values or strings, which are not represented as one-dimensional arrays of characters!
 Important variables include:
@@ -83,9 +94,27 @@ Important variables include:
 \item \textbf{OFS}: output field separator,
 \item \textbf{RS}: record separator (new line),
 \item \textbf{NR}: number of the current record,
-\item \textbf{NF}: number of fields in the current record. 
+\item \textbf{NF}: number of fields in the current record,
+\item \textbf{\$0}: the entire input record,
+\item \textbf{\$1}, \textbf{\$2}, \ldots: fields in the current record.
 \end{compactenum}
 
-Numerical functions: \texttt{int}, \texttt{sqrt}, \texttt{exp}, \texttt{log}, \texttt{sin}, \texttt{cos}, \texttt{atan2}, \texttt{rand} (pseudo random from $[0, 1)$), \texttt{srand} (without parameters, uses time of day as a seed).
+Available numerical functions:
+\begin{compactenum}
+\item \texttt{int},
+\item \texttt{sqrt}, \texttt{exp}, \texttt{log},
+\item \texttt{sin}, \texttt{cos}, \texttt{atan2},
+\item \texttt{rand} (uniformly distributed value from $[0, 1)$), \texttt{srand} (sets the seed (by default, time of day) for random number generator).
+\end{compactenum}
 
-String/text functions: \texttt{length}, \texttt{split}, \texttt{sprintf}, \texttt{gsub}, \texttt{sub}, \texttt{index}, \texttt{match}, \texttt{tolower}, \texttt{toupper}.
+String/text functions:
+\begin{compactenum}
+\item \texttt{length} returns number of characters.
+\item \texttt{split} divides string into pieces separated by a separator.
+\item \texttt{sprintf} returns string printed by \texttt{printf} (which is C-like function) without printing.
+\item \texttt{gsub} searches for all of the longest, leftmost, nonoverlapping substrings and replaces them (globally). \texttt{sub} replaces only first match.
+\item \texttt{index} searches for the first occurrence of a string. \texttt{match} accepts regexes too.
+\item \texttt{tolower}, \texttt{toupper} convert case.
+\end{compactenum}
+
+
