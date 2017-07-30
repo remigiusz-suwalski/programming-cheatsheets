@@ -71,9 +71,9 @@ Negation may be obtained with \texttt{!s}.
 \subsection{awk -- Aho, Weinberger, Kernighan}
 \begin{compactenum}
 \item [\cmdvar] \textbf{awk} is a language used as a data extraction and reporting tool.
+General form of its code:
 \end{compactenum}
 
-General form of its code:
 \begin{minted}{bash}
 #! /bin/awk
 pattern {actions} # comment
@@ -82,8 +82,8 @@ pattern {actions} # comment
 Supported types of pattern are
 \begin{compactenum}
 \item \mintinline{bash}{BEGIN} for initialization,
-\item regular expressions (enclosed in single slashes),
-\item awk expressions, comparison operators (tilde: matches),
+\item regular expressions (enclosed in \texttt{/ /}, single slashes): for example \texttt{/[a-z0-9\_-]\{3,16\}/},
+\item awk expressions, comparison operators (\texttt{<}, \texttt{>}, \texttt{<=}, \texttt{>=}, \texttt{==}, \texttt{!=}, tilde: matches, \texttt{!} negates),
 \item \mintinline{bash}{END} for final actions.
 \end{compactenum}
 
@@ -95,10 +95,26 @@ Important variables include:
 \item \textbf{RS}: record separator (new line),
 \item \textbf{NR}: number of the current record,
 \item \textbf{NF}: number of fields in the current record,
-\item \mintinline{bash}{$0}: the entire input record,
-\item \mintinline{bash}{$1, $2, $3, ...}: fields in the current record.
+\item \textbf{\$0}: the entire input record,
+\item \textbf{\$1}, \textbf{\$2}, \ldots: fields in the current record.
 \end{compactenum}
 
-Numerical functions: \texttt{int}, \texttt{sqrt}, \texttt{exp}, \texttt{log}, \texttt{sin}, \texttt{cos}, \texttt{atan2}, \texttt{rand} (pseudo random from $[0, 1)$), \texttt{srand} (without parameters, uses time of day as a seed).
+Available numerical functions:
+\begin{compactenum}
+\item \texttt{int},
+\item \texttt{sqrt}, \texttt{exp}, \texttt{log},
+\item \texttt{sin}, \texttt{cos}, \texttt{atan2},
+\item \texttt{rand} (uniformly distributed value from $[0, 1)$), \texttt{srand} (sets the seed (by default, time of day) for random number generator).
+\end{compactenum}
 
-String/text functions: \texttt{length}, \texttt{split}, \texttt{sprintf}, \texttt{gsub}, \texttt{sub}, \texttt{index}, \texttt{match}, \texttt{tolower}, \texttt{toupper}.
+String/text functions:
+\begin{compactenum}
+\item \texttt{length} returns number of characters.
+\item \texttt{split} divides string into pieces separated by a separator.
+\item \texttt{sprintf} returns string printed by \texttt{printf} (which is C-like function) without printing.
+\item \texttt{gsub} searches for all of the longest, leftmost, nonoverlapping substrings and replaces them (globally). \texttt{sub} replaces only first match.
+\item \texttt{index} searches for the first occurrence of a string. \texttt{match} accepts regexes too.
+\item \texttt{tolower}, \texttt{toupper} convert case.
+\end{compactenum}
+
+
