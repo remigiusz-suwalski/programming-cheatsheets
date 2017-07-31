@@ -1,12 +1,13 @@
-\documentclass[a4paper, twoside, 11pt]{extarticle}
+\documentclass[a4paper, twoside, 8pt]{extarticle}
 \usepackage[
-    left=1.2cm,
-    right=1.2cm,
-    top=2.25cm,
-    bottom=1.25cm]{geometry}
+left=1.2cm,
+right=1.2cm,
+top=2.25cm,
+bottom=1.25cm]{geometry}
 \usepackage{multicol}
 
-\usepackage{fancyhdr} % extensive control of page headers and footers
+% extensive control of page headers and footers
+\usepackage{fancyhdr} 
 \makeatletter
 \fancypagestyle{mypagestyle}
 {\newpage \fancyfoot[C]{} \renewcommand{\footrulewidth}{0pt}}
@@ -14,127 +15,174 @@
 \pagestyle{mypagestyle}
 \headsep 5pt            
 
-\usepackage[usenames,dvipsnames]{color} % colour control
-\usepackage{xcolor} % driver-independent color extensions
-\usepackage{amssymb} % provides an extended symbol collection
+% highlighted source code
+\usepackage{minted} 
+\usemintedstyle{pastie}
 
-\usepackage{enumitem} % control layout of itemize, enumerate, description
-\newenvironment{enumx} {
-	\begin{enumerate}[leftmargin=*]
-	\setlength{\topsep}{0pt}
-	\setlength{\itemsep}{0pt}
-	\setlength{\parskip}{0pt}
-	\setlength{\parsep}{0pt}
-	}
-{\end{enumerate}}
-\newenvironment{itemx} {
-	\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-	%\setlength{\itemsep}{0pt}
-	%\setlength{\parskip}{0pt}
-	%$\setlength{\parsep}{0pt}
-	}
-{\end{itemize}}
+% selects alternative subsection titles
+\usepackage[compact]{titlesec} 
+\titlespacing{\subsection}{0pt}{\parskip}{0}
+\titlespacing{\subsubsection}{0pt}{\parskip}{0}
+\titlespacing{\subsubsubsection}{0pt}{\parskip}{0}
 
-\usepackage{parskip} % layout with zero \parindent, non-zero \parskip
-\usepackage{titlesec} % selects alternative section titles
-\titlespacing\section{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsubsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-
-\usepackage{lastpage} % reference last page
+% half filled square, modifies \square and \blacksquare!
+\usepackage{stix}
+% custom font
 \usepackage{Alegreya}
+% provides an extended symbol collection
+\usepackage{amssymb} 
 \usepackage{hyperref}
+% reference last page
+\usepackage{lastpage}
+% layout with zero \parindent, non-zero \parskip 
+\usepackage{parskip} 
+% driver-independent color extensions
+\usepackage{xcolor} 
+% compact list environment
+\usepackage{paralist}
+\usepackage{microtype}
 
 \newcommand{\manualbreak}{\vspace*{\fill}\columnbreak}
-\newcommand{\cmdblack}{$\blacksquare$}
-\newcommand{\cmd}{$\bigstar$}
- 
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
 \begin{document}
 \renewcommand{\footrulewidth}{0.4pt}
 \fancyhead[LE,LO]{Git -- cheat sheet (page \thepage/\pageref{LastPage})}
-\fancyhead[RE,RO]{author: Simon Maple, date: February 25, 2016}
-\fancyfoot[RF]{source: \url{https://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/}}
+\fancyhead[RE,RO]{author: Remigiusz Suwalski, date: \today}
+\fancyfoot[RF]{source: \url{https://goo.gl/vFAfEJ}}
 %\fancyfoot[LF]{}
 
-\begin{multicols*}{2}
-\section{Create a Repository}
-From scratch -- Create a new local repository \\ \texttt{\color{blue} git init [project name]}
+\begin{multicols*}{3}
+\textbf{Git}, a version control system, tracks changes in files and coordinates work on those files among multiple people.
+Other VCS are \emph{Subversion} or \emph{Mercurial}.
 
-Download from an existing repository \\ \texttt{\color{blue} git clone myurl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Initialisation} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\dotfill git clone}
+\textbf{git clone <url>} clones an existing repository into new directory.
 
-\section{Observe your Repository}
-List new or modified files not yet
-committed \\ \texttt{\color{blue} git status}
+\subsection*{\dotfill git init}
+\textbf{git init} creates an empty Git repository.
 
-Show the changes to files not yet staged \\ \texttt{\color{blue} git diff}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introducing changes} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\dotfill git add}
+\textbf{git add <file>} stages a file.
 
-Show the changes to staged files \\ \texttt{\color{blue} git diff --cached}
+\textbf{git add -p <file>} stages a file interactively.
 
-Show all staged and unstaged
-file changes \\ \texttt{\color{blue} git diff HEAD}
+\subsection*{\dotfill git commit}
+\textbf{git commit -m} commits staged files with a message.
 
-Show the changes between two
-commit ids \\ \texttt{\color{blue} git diff commit1 commit2}
+\textbf{git commit -{}-amend} modifies a commit (and rewrites history!)
 
-List the change dates and authors
-for a file \\ \texttt{\color{blue} git blame [file]}
+\section*{Branches}
+\subsection*{\dotfill git branch}
+\textbf{git branch}	lists all local branches.
 
-Show the file changes for a commit
-id and/or file \\ \texttt{\color{blue} git show [commit]:[file]}
+\textbf{git branch -av} lists all local and remote branches.
 
-Show full change history \\ \texttt{\color{blue} git log}
+\textbf{git branch <branch>} creates a new branch.
 
-Show change history for file/directory
-including diffs \\ \texttt{\color{blue} git log -p [file/directory]}
+\textbf{git branch -d <branch>} deletes a branch.
 
+\textbf{git branch -{}-contains <commit>} lists branches with given commit.
 
-\section{Working with Branches}
-List all local branches \\ \texttt{\color{blue} git branch}
+\subsection*{\dotfill git checkout}
+\textbf{git checkout <branch>} switches to an existing branch and updates working directory.
 
-List all branches, local and remote \\ \texttt{\color{blue} git branch -av}
+\textbf{git checkout -b <branch>} creates a new branch and switches to it.
 
-Switch to a branch and update working directory \\ \texttt{\color{blue} git checkout mybranch}
+\textbf{git checkout -{}-orphan <branch>} ?.
 
-Create a new branch called newbranch \\ \texttt{\color{blue} git branch newbranch}
+\subsection*{\dotfill git chery-pick}
+\textbf{git cherry-pick <commit>} adds a commit on top of current branch.
 
-Delete the branch called mybranch \\ \texttt{\color{blue} git branch -d mybranch}
+\subsection*{\dotfill git merge}
+\textbf{git merge <branch>} merges all changes into current branch.
+Combined with \textbf{fetch} almost equals \textbf{pull}.
 
-Merge brancha into branchb \\ \texttt{\color{blue} git checkout branchb\\git merge brancha}
+\textbf{git merge -{}-abort} ?.
 
-Tag the current commit \\ \texttt{\color{blue} git tag mytag}
+\subsection*{\dotfill git rebase}
+\textbf{git rebase <branch>} rebases: reapplies commits on top of another base tip.
 
-\section{Make a change}
-Stages the file, ready for commit \\ \texttt{\color{blue} git add [file]}
+\textbf{git rebase -i HEAD\textasciitilde<number>} rebases interactively.
 
-Stage all changed files, ready for commit \\ \texttt{\color{blue} git add .}
+\textbf{git rebase abort}
 
-Commit all staged files to versioned history \\ \texttt{\color{blue} git commit -m “commit message”}
+\subsection*{\dotfill git remote}
+\textbf{git remote -v} lists tracked remote repositories.
 
-Commit all your tracked files to
-versioned history \\ \texttt{\color{blue} git commit -am “commit message”}
+\textbf{git remote show <remote>} shows information about remote repository.
 
-Unstages file, keeping the file changes \\ \texttt{\color{blue} git reset [file]}
+\textbf{git remote add <name> <url>} adds a new remote repository.
 
-Revert everything to the last commit \\ \texttt{\color{blue} git reset --hard}
+\section*{Observing changes}
+\subsection*{\dotfill git blame}
+\textbf{git blame <file>} shows what revision and author last modified each line of a file.
 
-\section{Synchronise}
-Get the latest changes from origin
-(no merge) \\ \texttt{\color{blue} git fetch}
+\subsection*{\dotfill git diff} 
+\textbf{git diff} lists unstaged changes.
 
-Fetch the latest changes from origin
-and merge \\ \texttt{\color{blue} git pull}
+\textbf{git diff <commit>} lists changes between workspace and the commit.
+\textbf{git diff <commit> <commit>} shows changes between two commits.
+Above commands work with \textbf{<branch>} in place of \textbf{<commit>} too.
 
-Fetch the latest changes from origin
-and rebase \\ \texttt{\color{blue} git pull --rebase}
+\textbf{git diff -{}-cached} shows changes to staged files.
+%Show all staged and unstaged file changes \\ \texttt{\color{blue} git diff HEAD}
 
-Push local changes to the origin \\ \texttt{\color{blue} git push}
+\subsection*{\dotfill git log}
+\textbf{git log} shows full version history.
 
-\section{Finally!}
-When in doubt, use git help \\ \texttt{\color{blue} git command --help}
+\textbf{git log -p <file>} shows file's change history.
 
-Or visit \url{https://training.github.com/} for official GitHub training
+\textbf{git log -{}-follow <file>} includes renames.
+
+\textbf{git log -{}-oneline} shows compact history.
+
+\textbf{git log -{}-all -{}-decorate -{}-oneline -{}-graph}
+
+\subsection*{\dotfill git show}
+\textbf{git show <commit>:<file>} shows contents of a file.
+
+\subsection*{\dotfill git status}
+\textbf{git status} lists new and modified files.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Undoing changes} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\dotfill git reset}
+\textbf{git reset <file>} unstages file but keeps the changes.
+
+\textbf{git reset -{}-hard <file>} throws away all local changes.
+
+\subsection*{\dotfill git revert}
+\textbf{git revert <commit>} undoes a commit.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{(Re)moving} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{git mv} moves.
+
+\textbf{git rm} removes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Syncronising} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{\dotfill git fetch}
+\textbf{git fetch <remote>} gets the latest changes from origin without merge.
+
+\subsection*{\dotfill git pull}
+\textbf{git pull <remote> <branch>} fetches latest changes and merges
+
+\textbf{git pull -{}--rebase} fetches latest changes and rebases.
+
+\subsection*{\dotfill git push}
+\textbf{git push <remote> <branch>} pushes local changes to origin
+
+\section*{Various}
+\subsection*{\dotfill git tag}
+\textbf{git tag <tagname>} tags the current commit.
 \end{multicols*}
 \end{document}
