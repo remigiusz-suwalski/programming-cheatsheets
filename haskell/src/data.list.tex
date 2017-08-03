@@ -1,0 +1,21 @@
+\section{Data.List}
+\subsection{Special lists}
+\subsubsection{Set operations}
+\begin{minted}{haskell}
+-- (Eq a) => [a] -> [a]
+nub = nubBy (==)
+
+nubBy p []     = []
+nubBy p (x:xs) = x : 
+  nubBy p (filter (\ y -> not (p x y)) xs)
+\end{minted}
+
+\subsubsection{Ordered lists}
+\begin{minted}{haskell}
+-- (Ord a) => [a] -> [a]  
+sort []     = []  
+sort (x:xs) =   
+  let large = sort $ filter (> x) xs
+    small = sort $ filter (<= x) xs
+  in small ++ ([x]:large)
+\end{minted}

@@ -1,0 +1,222 @@
+\section{Prelude}
+\subsection{Standard types and classes}
+\subsubsection{Folds and traversals}
+\begin{minted}{haskell}
+-- [Int] -> Int
+sum = foldl (+) 0
+
+-- [Int] -> Int
+product = foldl (*) 1
+
+-- [Int] -> Int
+maximum [x] = x
+maximum (x:xs) = max x (maximum xs)
+
+-- [Int] -> Int
+minimum [x] = x
+minimum (x:xs) = min x (minimum xs)
+\end{minted}
+
+\subsection{List operations}
+\begin{minted}{haskell}
+-- [a] -> [a] -> [a]
+(++) []     ys = ys
+(++) (x:xs) ys = x : xs ++ ys
+
+-- [a] -> Int -> a
+(x:_)  !! 0 = x
+(_:xs) !! n = xs !! (n-1)
+
+-- (a -> b) -> [a] -> [b]
+map _ []     = []
+map f (x:xs) = f x : map f xs
+
+-- (a -> Bool) -> [a] -> [a]
+filter p []   = []
+filter p (x:xs)
+  | p x       = x : filter p xs
+  | otherwise = filter p xs
+
+-- [a] -> a
+head (x:_) = x
+
+-- [a] -> [a]
+tail (_:xs) = xs
+
+-- [a] -> a
+last [x]    = x
+last (_:xs) = last xs
+
+-- [a] -> [a]
+init [x]    = []
+init (x:xs) = x : init xs
+
+-- t a -> Bool
+null = foldr (\_ _ -> False) True
+
+-- t a -> Int
+length = foldl' (\c _ -> c+1) 0
+
+-- [a] -> [a]
+reverse = foldl (flip (:)) []
+\end{minted}
+
+\subsubsection{Special folds}
+\begin{minted}{haskell}
+-- [Bool] -> Bool
+and = foldr (&&) True
+
+-- [Bool] -> Bool
+or = foldr (||) False
+
+-- (a -> Bool) -> [a] -> Bool
+any p xs = or (map p xs)
+
+-- (a -> Bool) -> [a] -> Bool
+any p xs = or (map p xs)
+
+-- [[a]] -> [a]
+concat = foldr (++) []
+
+-- (a -> [b]) -> [a] -> [b]
+concatMap f = foldr ((++) . f) []
+\end{minted}
+
+\subsubsection{Building lists with scans}
+\begin{minted}{haskell}
+-- (b -> a -> b) -> b -> [a] -> [b]
+scanl = s'
+  where
+    -- (b -> a -> b) -> b -> [a] -> [b]
+    s' f q ls = q : (case ls of
+      [] -> []
+      x:xs -> s' f (f q x) xs)
+
+-- (a -> a -> a) -> [a] -> [a]
+scanl1 _ []     = []
+scanl1 f (x:xs) = scanl f x xs
+\end{minted}
+
+\begin{minted}{haskell}
+-- (a -> b -> b) -> b -> [a] -> [b]
+scanr _ q0 []     = [q0]
+scanr f q0 (x:xs) = f x q : qs
+  where qs@(q:_) = scanr f q0 xs
+
+-- (a -> a -> a) -> [a] -> [a]
+scanr1 _ []     = []
+scanr1 _ [x]    = [x]
+scanr1 f (x:xs) = f x q : qs
+  where qs@(q:_) = scanr1 f xs                           
+\end{minted}
+
+\subsubsection{Building infinite lists}
+\begin{minted}{haskell}
+-- (a -> a) -> a -> [a]
+iterate f x = x : iterate f (f x)
+
+-- a -> [a]
+repeat x = xs where xs = x : xs
+
+-- Int -> a -> [a]
+replicate n x = take n (repeat x)
+
+-- [a] -> [a]
+cycle xs = xs' where xs' = xs ++ xs'
+\end{minted}
+
+\subsubsection{Sublists}
+\begin{minted}{haskell}
+-- Int -> [a] -> [a]
+take n _ | n <= 0 = []
+take _ []         = []
+take n (x:xs)     = x : take (n-1) xs
+
+-- Int -> [a] -> [a]
+drop n xs | n <= 0 = xs
+drop _ []          = []
+drop n (_:xs)      = drop (n-1) xs
+
+-- Int -> [a] -> ([a], [a])
+splitAt n xs = (take n xs, drop n xs)
+
+-- (a -> Bool) -> [a] -> [a]
+takeWhile _ [] = []
+takeWhile p (x:xs)
+  | p x        = x : takeWhile p xs
+  | otherwise  = []
+
+-- (a -> Bool) -> [a] -> [a]
+dropWhile _ [] = []
+dropWhile p xs@(x:xs')
+  | p x        = dropWhile p xs'
+  | otherwise  = xs
+
+-- (a -> Bool) -> [a] -> ([a], [a])
+span _ []     = ([], [])
+span p xs@(x:xs')
+  | p x       = (x:ys, zs)
+  | otherwise = ([], xs)
+    where (ys, zs) = span p xs'
+
+-- (a -> Bool) -> [a] -> ([a], [a])
+break p = span (not . p)
+\end{minted}
+
+\subsubsection{Searching lists}
+\begin{minted}{haskell}
+-- (Foldable t, Eq a) => a -> t a -> Bool
+notElem x = not . elem x
+
+-- (Eq a) => a -> [(a, b)] -> Maybe b
+lookup key []   = Nothing
+lookup key ((x, y):xys)
+    | key == x  = Just y
+    | otherwise = lookup key xys
+\end{minted}
+
+\subsubsection{Zipping and unzipping lists}
+\begin{minted}{haskell}
+-- [a] -> [b] -> [(a, b)]
+zip []     bs    = []
+zip as    []     = []
+zip (a:as) (b:bs) = (a, b) : zip as bs
+
+-- (a -> b -> c) -> [a] -> [b] -> [c]
+zipWith f []     bs     = []
+zipWith f as     []     = []
+zipWith f (a:as) (b:bs) = 
+  f a b : zipWith f as bs
+
+-- [(a, b)] -> ([a], [b])
+unzip = foldr f ([], [])
+  where
+    f (a, b) ~(as, bs) = (a:as, b:bs)
+\end{minted}
+
+\textbf{See also}: \texttt{zip3}, \texttt{zipWith3} and \texttt{unzip3}.
+
+\subsubsection{Functions on strings}
+\begin{minted}{haskell}
+-- String -> [String]
+lines "" = []
+lines s  = cons (case break (== '\n') s of
+  (l, s') -> (l, case s' of
+    []    -> []
+    _:s'' -> lines s''))
+  where
+    cons ~(h, t) = h : t
+
+-- [String] -> String
+unlines = concatMap (++ "\n")
+
+-- String -> [String]
+words s = case dropWhile Char.isSpace s of
+  "" -> []
+  s' -> w : words s''
+    where (w, s'') = break Char.isSpace s'
+
+-- [String] -> String
+unwords [] = ""
+unwords ws = foldr1 (\w s -> w ++ ' ':s) ws
+\end{minted}
