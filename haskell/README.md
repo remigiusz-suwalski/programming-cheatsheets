@@ -14,3 +14,7 @@ as a quick-reference guide for syntax, keywords or other language issues.*
 
 2. **Real World Haskell** by B. O'Sullivan, D. Stewart and J. Goerzen at <http://book.realworldhaskell.org/>.
 *This easy-to-use, fast-moving tutorial introduces you to functional programming with Haskell. You'll learn how to use Haskell in a variety of practical ways, from short scripts to large and demanding applications. Real World Haskell takes you through the basics of functional programming at a brisk pace, and then helps you increase your understanding of Haskell in real-world issues like I/O, performance, dealing with data, concurrency, and more as you move through each chapter.*
+
+## Useful tools
+1. **Hoogle** at <https://www.haskell.org/hoogle/>.
+*Hoogle is a Haskell API search engine, which allows you to search many standard Haskell libraries by either function name, or by approximate type signature.*
