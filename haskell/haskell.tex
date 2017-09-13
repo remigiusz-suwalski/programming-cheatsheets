@@ -1,0 +1,16 @@
+\documentclass{programmingnotes}
+\begin{document}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyhead[LE,LO]{Haskell -- quick reference (page \thepage/\pageref{LastPage})}
+\fancyhead[RO,RE]{source: \url{https://git.io/v9d39}} 
+\fancyfoot[RF]{author: Remigiusz Suwalski,\\ date: \today}
+\fancyfoot[LF]{}
+
+\begin{multicols*}{3}
+\input{src/prelude}
+\input{src/data.list}
+
+In this document almost entire Haskell Prelude is given.
+Many of the definitions are written with clarity rather than efficiency in mind!
+\end{multicols*}
+\end{document}

@@ -1,78 +1,23 @@
-\documentclass[a4paper, twoside, 8pt]{extarticle}
-\usepackage[
-    left=1.2cm,
-    right=1.2cm,
-    top=2.25cm,
-    bottom=1.25cm]{geometry}
-\usepackage{multicol}
-
-% extensive control of page headers and footers
-\usepackage{fancyhdr} 
-\makeatletter
-\fancypagestyle{mypagestyle}
-{\newpage \fancyfoot[C]{} \renewcommand{\footrulewidth}{0pt}}
-\makeatother
-\pagestyle{mypagestyle}
-\headsep 5pt            
-
-% highlighted source code
-\usepackage{minted} 
-\usemintedstyle{pastie}
-
-% selects alternative section titles
-\usepackage[compact]{titlesec} 
-\titlespacing{\section}{0pt}{\parskip}{0}
-\titlespacing{\subsection}{0pt}{\parskip}{0}
-\titlespacing{\subsubsection}{0pt}{\parskip}{0}
-
-% half filled square, modifies \square and \blacksquare!
-\usepackage{stix}
-% custom font
-\usepackage{Alegreya}
-% provides an extended symbol collection
-\usepackage{amssymb} 
-\usepackage{hyperref}
-% reference last page
-\usepackage{lastpage}
-% layout with zero \parindent, non-zero \parskip 
-\usepackage{parskip} 
-% driver-independent color extensions
-\usepackage{xcolor} 
-% compact list environment
-\usepackage{paralist}
-\usepackage{microtype}
-
-\newcommand{\manualbreak}{\vspace*{\fill}\columnbreak}
-\newcommand{\cmdcore}{$\blacksquare$}
-\newcommand{\cmdutil}{$\squarelrblack$}
-\newcommand{\cmdvar}{$\square$}
-
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-
+\documentclass{programmingnotes}
 \begin{document}
 \renewcommand{\footrulewidth}{0.4pt}
 \fancyhead[LE,LO]{Linux/Bash -- quick reference (page \thepage/\pageref{LastPage})}
 \fancyhead[RO,RE]{source: \url{https://git.io/vMQlp}} 
 \fancyfoot[RF]{author: Remigiusz Suwalski,\\ date: \today}
-\fancyfoot[LF]{\cmdcore \,: coreutils 8.27, \cmdutil \,: util-linux 2.29, \cmdvar \,: other commands.}
+\fancyfoot[LF]{
+	\cmdcore \,: coreutils 8.27, 
+	\cmdutil \,: util-linux 2.29, 
+	\cmdvar \,: other commands.
+}
 
 \begin{multicols*}{3}
 \textbf{Bash}, a command line interface for interacting with the operating system, was created in the 1980s.
 Other popular shells are \emph{zsh} and \emph{fish}.
-
 \input{src/programming}
-
 \input{src/style_guide}
-
 \input{src/shortcuts}
-
-% \vfill\null\columnbreak
-
 \input{src/sed_awk}
-
 \input{src/regex}
-
 \end{multicols*}
 
 \newpage
@@ -80,46 +25,14 @@ Other popular shells are \emph{zsh} and \emph{fish}.
 \begin{multicols*}{3}
 \section{Unix utilities and shell builtins}
 % Based on https://en.wikipedia.org/wiki/Template:Unix_commands
-
-\subsection{File system}
-\input{src/unix_files}
-
-\subsection{Processes}
-\input{src/unix_processes}
-
-\subsection{User environment}
-\input{src/unix_user}
-
-\subsection{Text processing}
-\input{src/unix_text}
-
-\subsection{Shell builtins}
-\input{src/unix_builtins}
-
-\subsection{Networking}
-\input{src/unix_network}
-
-\subsection{Hardware}
-\input{src/unix_hw}
-
-\subsection{For programmers}
-\input{src/unix_programmers}
-
-\subsection{Miscellaneous}
-\input{src/unix_miscellaneous}
+\subsection{File system} \input{src/unix_files}
+\subsection{Processes} \input{src/unix_processes}
+\subsection{User environment} \input{src/unix_user}
+\subsection{Text processing} \input{src/unix_text}
+\subsection{Shell builtins} \input{src/unix_builtins}
+\subsection{Networking} \input{src/unix_network}
+\subsection{Hardware} \input{src/unix_hw}
+\subsection{For programmers} \input{src/unix_programmers}
+\subsection{Miscellaneous} \input{src/unix_miscellaneous}
 \end{multicols*}
 \end{document}
-
-Todo:
-\textbf{gp} invokes the PARI/GP calculator.
-\textbf{pdflatex} runs the pdfTeX typesetter.
-
-\textbf{apropos} searches the manual page names and descriptions.
-\textbf{man} is an interface to the online reference manuals.
-
-\textbf{ghci} is the Glasgow Haskell Compiler.
-\textbf{ipython} is an interactive Python shell, see also
-\textbf{python} and \textbf{python3}.
-\textbf{gcc} is a C and C++ compiler.
-
-nc - ?

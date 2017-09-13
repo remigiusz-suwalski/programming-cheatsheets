@@ -1,73 +1,22 @@
-\documentclass[a4paper, twoside, 8pt]{extarticle}
-\usepackage[
-left=1.2cm,
-right=1.2cm,
-top=2.25cm,
-bottom=1.25cm]{geometry}
-\usepackage{multicol}
-
-% extensive control of page headers and footers
-\usepackage{fancyhdr} 
-\makeatletter
-\fancypagestyle{mypagestyle}
-{\newpage \fancyfoot[C]{} \renewcommand{\footrulewidth}{0pt}}
-\makeatother
-\pagestyle{mypagestyle}
-\headsep 5pt            
-
-% highlighted source code
-\usepackage{minted} 
-\usemintedstyle{pastie}
-
-% selects alternative subsection titles
-\usepackage[compact]{titlesec} 
-\titlespacing{\subsection}{0pt}{\parskip}{0}
-\titlespacing{\subsubsection}{0pt}{\parskip}{0}
-\titlespacing{\subsubsubsection}{0pt}{\parskip}{0}
-
-% half filled square, modifies \square and \blacksquare!
-\usepackage{stix}
-% custom font
-\usepackage{Alegreya}
-% provides an extended symbol collection
-\usepackage{amssymb} 
-\usepackage{hyperref}
-% reference last page
-\usepackage{lastpage}
-% layout with zero \parindent, non-zero \parskip 
-\usepackage{parskip} 
-% driver-independent color extensions
-\usepackage{xcolor} 
-% compact list environment
-\usepackage{paralist}
-\usepackage{microtype}
-
-\newcommand{\manualbreak}{\vspace*{\fill}\columnbreak}
-
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-
+\documentclass{programmingnotes}
 \begin{document}
 \renewcommand{\footrulewidth}{0.4pt}
 \fancyhead[LE,LO]{Git -- cheat sheet (page \thepage/\pageref{LastPage})}
 \fancyhead[RE,RO]{author: Remigiusz Suwalski, date: \today}
 \fancyfoot[RF]{source: \url{https://goo.gl/vFAfEJ}}
-%\fancyfoot[LF]{}
 
 \begin{multicols*}{3}
 \textbf{Git}, a version control system, tracks changes in files and coordinates work on those files among multiple people.
 Other VCS are \emph{Subversion} or \emph{Mercurial}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Initialisation} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Initialisation} 
 \subsection*{\dotfill git clone}
 \textbf{git clone <url>} clones an existing repository into new directory.
 
 \subsection*{\dotfill git init}
 \textbf{git init} creates an empty Git repository.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Introducing changes} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introducing changes} 
 \subsection*{\dotfill git add}
 \textbf{git add <file>} stages a file.
 
@@ -132,7 +81,6 @@ Combined with \textbf{fetch} almost equals \textbf{pull}.
 Above commands work with \textbf{<branch>} in place of \textbf{<commit>} too.
 
 \textbf{git diff -{}-cached} shows changes to staged files.
-%Show all staged and unstaged file changes \\ \texttt{\color{blue} git diff HEAD}
 
 \subsection*{\dotfill git log}
 \textbf{git log} shows full version history.
@@ -151,8 +99,7 @@ Above commands work with \textbf{<branch>} in place of \textbf{<commit>} too.
 \subsection*{\dotfill git status}
 \textbf{git status} lists new and modified files.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Undoing changes} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Undoing changes} 
 \subsection*{\dotfill git reset}
 \textbf{git reset <file>} unstages file but keeps the changes.
 
@@ -161,14 +108,12 @@ Above commands work with \textbf{<branch>} in place of \textbf{<commit>} too.
 \subsection*{\dotfill git revert}
 \textbf{git revert <commit>} undoes a commit.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{(Re)moving} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{(Re)moving} 
 \textbf{git mv} moves.
 
 \textbf{git rm} removes.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Syncronising} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Syncronising} 
 
 \subsection*{\dotfill git fetch}
 \textbf{git fetch <remote>} gets the latest changes from origin without merge.
