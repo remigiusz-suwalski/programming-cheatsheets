@@ -18,9 +18,3 @@ as a quick-reference guide for syntax, keywords or other language issues.*
 ## Useful tools
 1. **Hoogle** at <https://www.haskell.org/hoogle/>.
 *Hoogle is a Haskell API search engine, which allows you to search many standard Haskell libraries by either function name, or by approximate type signature.*
-
-2. **HUnit** at <http://hunit.sourceforge.net/>
-
-3. **Haddock** at <https://www.haskell.org/haddock/>
-
-4. **Quickcheck** at <http://www.cse.chalmers.se/~rjmh/QuickCheck/>
