@@ -50,23 +50,38 @@ switch (key) {
 \end{minted}
 
 Loops:
+\begin{minted}{c++}
+for (init, test, action) {
+  commands
+}
+\end{minted}
 
 \begin{minted}{c++}
-for (initialization, test, action) {
-	commands;
+for (variable : table) {
+  // available in C++ 11
+  commands
 }
 \end{minted}
 
 \begin{minted}{c++}
 while (conditions) {
-	commands;
+  commands
 }
 \end{minted}
 
 \begin{minted}{c++}
 do {
-	commands;
-} while (conditions);
+  commands
+} while (conditions)
+\end{minted}
+
+There are two useful instructions: \mintinline{cpp}{continue} jumps to the end of loop's body, \mintinline{cpp}{break} jumps out of the loop.
+
+\section{Functions}
+\begin{minted}{c++}
+type function(type arg, type arg, ...) {
+  commands
+}
 \end{minted}
 
 \end{multicols*}
