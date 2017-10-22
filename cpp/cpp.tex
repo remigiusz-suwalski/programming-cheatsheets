@@ -27,14 +27,28 @@ Input and output.
 \end{enumerate}
 
 \section{Conditionals}
-
+The syntactic sugar
+\begin{minted}{c++}
+condition ? value_true : value_false
+\end{minted}
+is a replacement for classical conditional instruction:
 \begin{minted}{c++}
 if (condition) {
-	// commands;
+  commands;
 } else {
-	// commands;
+  commands;
 }
 \end{minted}
+
+There is also a switch-case instruction driven by a key of enum type:
+\begin{minted}{c++}
+switch (key) {
+  case value1: instructions; break;
+  case value2: instructions; break;
+  default: instructions;
+}
+\end{minted}
+
 Loops:
 
 \begin{minted}{c++}
